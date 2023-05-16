@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:XamAntClientApp.ViewModels"
+             x:DataType="viewmodels:HeartRateViewModel"
+             Title="Heart Rate"
+             x:Class="XamAntClientApp.Views.HeartRatePage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid Margin="10">
+                <Frame BorderColor="Black" Margin="0, 10, 0, 0">
+                    <StackLayout>
+                        <Label Text="{Binding HeartRateDevice.HeartRateData.ComputedHeartRate, StringFormat='Heart Rate: {0}'}"/>
+                        <Label Text="{Binding HeartRateDevice.HeartRateData.RRInterval, StringFormat='RR Interval: {0}'}"/>
+                        <Label Text="{Binding HeartRateDevice.HeartRateData.AccumulatedHeartBeatEventTime, StringFormat='Accumulated Heartbeat Event Time: {0}'}"/>
+                        <Label Text="{Binding HeartRateDevice.CumulativeOperatingTime, StringFormat='Cumulative Operating Time: {0}'}"/>
+                        <Label Text="{Binding HeartRateDevice.EventType, StringFormat='Heartbeat Event Type: {0}'}"/>
+                    </StackLayout>
+                </Frame>
+                <Label Text="Default Data" Style="{StaticResource HeaderLabelStyle}"/>
+            </Grid>
+            <Grid Margin="10">
+                <Frame BorderColor="Black" Margin="0, 10, 0, 0">
+                    <StackLayout>
+                        <Label Text="{Binding HeartRateDevice.Capabilities.Supported, StringFormat='Capabilities Supported: {0}'}"/>
+                        <Label Text="{Binding HeartRateDevice.Capabilities.Enabled, StringFormat='Capabilities Enabled: {0}'}"/>
+                        <Button Text="Get Capabilities" Command="{Binding RequestPageCommand}" Margin="4"></Button>
+                    </StackLayout>
+                </Frame>
+                <Label Text="Capabilities" Style="{StaticResource HeaderLabelStyle}"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

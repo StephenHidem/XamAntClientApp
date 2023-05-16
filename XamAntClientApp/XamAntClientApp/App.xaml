@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamAntClientApp.App">
+    <!--
+        Define global resources and styles here, that apply to all pages in your app.
+    -->
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#2196F3</Color>
+            <LinearGradientBrush x:Key="HorizontalGradientBrush" StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="SteelBlue" Offset="0.0" />
+                <GradientStop Color="White" Offset="0.5" />
+                <GradientStop Color="SteelBlue" Offset="1"/>
+            </LinearGradientBrush>
+
+            <Style TargetType="Button">
+                <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Disabled">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="#332196F3" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+                <Setter Property="Background" Value="{StaticResource HorizontalGradientBrush}"/>
+            </Style>
+            
+            <Style x:Key="HeaderLabelStyle" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="Margin" Value="20, 0, 0, 0"/>
+                <Setter Property="Padding" Value="10, 0, 10, 0"/>
+                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="HorizontalOptions" Value="Start"/>
+                <Setter Property="VerticalOptions" Value="Start"/>
+            </Style>
+
+            <!--<Style TargetType="Button">
+                <Setter Property="Background" Value="{StaticResource HorizontalGradientBrush}"/>
+                <Setter Property="Padding" Value="8"/>
+                <Setter Property="Margin" Value="8"/>
+                <Setter Property="CornerRadius" Value="5"/>
+            </Style>-->
+
+
+        </ResourceDictionary>        
+    </Application.Resources>
+</Application>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:antplus="clr-namespace:SmallEarthTech.AntPlus;assembly=AntPlus"
+             xmlns:viewmodels="clr-namespace:XamAntClientApp.ViewModels"
+             xmlns:converters="clr-namespace:XamAntClientApp.Converters"
+             x:DataType="viewmodels:AntDevicesViewModel"
+             x:Class="XamAntClientApp.Views.AntDevicesPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:StreamToImageSourceConverter x:Key="StreamToImage"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ListView Margin="10" ItemsSource="{Binding AntDevices}" Header="ANT Devices" ItemTapped="AntDeviceSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="antplus:AntDevice">
+                    <ImageCell ImageSource="{Binding DeviceImageStream, Converter={StaticResource StreamToImage}}"
+                               Text="{Binding .}" Detail="{Binding ChannelId.DeviceNumber}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>
