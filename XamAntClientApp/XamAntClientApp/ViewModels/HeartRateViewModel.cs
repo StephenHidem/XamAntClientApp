@@ -5,7 +5,6 @@ using SmallEarthTech.AntPlus.DeviceProfiles.HeartRate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Xamarin.Forms;
 
 namespace XamAntClientApp.ViewModels
 {
@@ -21,7 +20,6 @@ namespace XamAntClientApp.ViewModels
         [NotifyCanExecuteChangedFor(nameof(RequestPageCommand))]
         private HeartRate.DataPage pageRequested;
         [ObservableProperty]
-        [NotifyCanExecuteChangedFor(nameof(SetSportModeCommand))]
         private SportMode modeRequested;
 
         [ObservableProperty]
@@ -32,24 +30,8 @@ namespace XamAntClientApp.ViewModels
         public HeartRateViewModel(HeartRate heartRate)
         {
             HeartRateDevice = heartRate;
-            HeartRateDevice.PropertyChanged += HeartRate_PropertyChanged;
             PageRequested = HeartRate.DataPage.Capabilities;
             ModeRequested = SportMode.Cycling;
-        }
-
-        private void HeartRate_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
-        {
-            switch (e.PropertyName)
-            {
-                case nameof(HeartRate.Capabilities):
-                    Application.Current.Dispatcher.BeginInvokeOnMainThread(() =>
-                    {
-                        SetSportModeCommand.NotifyCanExecuteChanged();
-                    });
-                    break;
-                default:
-                    break;
-            }
         }
 
         [RelayCommand(CanExecute = nameof(CanRequestPage))]
@@ -76,32 +58,32 @@ namespace XamAntClientApp.ViewModels
             }
         }
 
-        [RelayCommand(CanExecute = nameof(CanSetSportMode))]
-        private void SetSportMode()
-        {
-            HeartRateDevice.SetSportMode(ModeRequested);
-        }
         private bool CanSetSportMode()
         {
-            switch (ModeRequested)
+            return ModeRequested switch
             {
-                case SportMode.Generic:
-                    return !HeartRateDevice.Capabilities.Enabled.Equals(HeartRate.Features.Generic);
-                case SportMode.Running:
-                    return HeartRateDevice.Capabilities.Supported.HasFlag(HeartRate.Features.Running);
-                case SportMode.Cycling:
-                    return HeartRateDevice.Capabilities.Supported.HasFlag(HeartRate.Features.Cycling);
-                case SportMode.Swimming:
-                    return HeartRateDevice.Capabilities.Supported.HasFlag(HeartRate.Features.Swimming);
-                default:
-                    return false;
-            }
+                SportMode.Generic => !HeartRateDevice.Capabilities.Enabled.Equals(HeartRate.Features.Generic),
+                SportMode.Running => HeartRateDevice.Capabilities.Supported.HasFlag(HeartRate.Features.Running),
+                SportMode.Cycling => HeartRateDevice.Capabilities.Supported.HasFlag(HeartRate.Features.Cycling),
+                SportMode.Swimming => HeartRateDevice.Capabilities.Supported.HasFlag(HeartRate.Features.Swimming),
+                _ => false,
+            };
         }
 
         [RelayCommand]
-        private void SetHRFeature()
+        private void SetCapabilities()
         {
-            HeartRateDevice.SetHRFeature(ApplyFeature, EnableGymMode);
+            // check if gym mode is supported
+            if (HeartRateDevice.Capabilities.Supported.HasFlag(HeartRate.Features.GymMode))
+            {
+                HeartRateDevice.SetHRFeature(true, EnableGymMode);
+            }
+
+            // check selected sport mode is supported
+            if (CanSetSportMode())
+            {
+                HeartRateDevice.SetSportMode(ModeRequested);
+            }
         }
     }
 }
