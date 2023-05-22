@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:conv="clr-namespace:XamAntClientApp.Converters"
+             xmlns:viewmodels="clr-namespace:XamAntClientApp.ViewModels"
+             xmlns:unknowndevice="clr-namespace:SmallEarthTech.AntPlus.DeviceProfiles.UnknownDevice;assembly=AntPlus"
+             x:DataType="viewmodels:UnknownDeviceViewModel"
+             x:Class="XamAntClientApp.Views.UnknownDevicePage">
+    <ContentPage.Resources>
+        <conv:ByteArrayToStringConverter x:Key="ByteToStr"/>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid Margin="10">
+            <ListView ItemsSource="{Binding UnknownDevice.DataPages}" Header="Data Page">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell x:DataType="unknowndevice:DataPage" Text="{Binding Page, Converter={StaticResource ByteToStr}}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

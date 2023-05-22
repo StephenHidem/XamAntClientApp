@@ -1,5 +1,6 @@
 ﻿using SmallEarthTech.AntPlus;
 using SmallEarthTech.AntPlus.DeviceProfiles.HeartRate;
+using SmallEarthTech.AntPlus.DeviceProfiles.UnknownDevice;
 using XamAntClientApp.Services;
 using XamAntClientApp.Views;
 using Xamarin.Forms;
@@ -27,6 +28,7 @@ namespace XamAntClientApp.ViewModels
             Page page = device switch
             {
                 HeartRate => new HeartRatePage(device as HeartRate),
+                UnknownDevice => new UnknownDevicePage(device as UnknownDevice),
                 _ => throw new System.NotImplementedException()
             };
 

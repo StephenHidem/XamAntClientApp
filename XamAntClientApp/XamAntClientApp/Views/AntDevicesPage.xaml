@@ -12,7 +12,10 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <ListView Margin="10" ItemsSource="{Binding AntDevices}" Header="ANT Devices" ItemTapped="AntDeviceSelected">
+        <ListView Margin="10" ItemsSource="{Binding AntDevices}" ItemTapped="AntDeviceSelected">
+            <ListView.Header>
+                <Label  Text="ANT Devices" FontAttributes="Bold" FontSize="Large"/>
+            </ListView.Header>
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="antplus:AntDevice">
                     <ImageCell ImageSource="{Binding DeviceImageStream, Converter={StaticResource StreamToImage}}"
