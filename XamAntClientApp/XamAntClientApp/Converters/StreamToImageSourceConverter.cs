@@ -1,6 +1,6 @@
-﻿using System;
+﻿using SmallEarthTech.AntPlus;
+using System;
 using System.Globalization;
-using System.IO;
 using Xamarin.Forms;
 
 namespace XamAntClientApp.Converters
@@ -9,7 +9,7 @@ namespace XamAntClientApp.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return ImageSource.FromStream(() => (Stream)value);
+            return ImageSource.FromStream(() => ((AntDevice)value).DeviceImageStream);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

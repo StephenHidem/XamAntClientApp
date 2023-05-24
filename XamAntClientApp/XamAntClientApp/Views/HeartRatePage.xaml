@@ -4,7 +4,7 @@
              xmlns:viewmodels="clr-namespace:XamAntClientApp.ViewModels"
              xmlns:ap="clr-namespace:SmallEarthTech.AntPlus;assembly=AntPlus"
              x:DataType="viewmodels:HeartRateViewModel"
-             Title="Heart Rate"
+             Title="Heart Rate Monitor"
              x:Class="XamAntClientApp.Views.HeartRatePage">
     <ContentPage.Content>
         <StackLayout>

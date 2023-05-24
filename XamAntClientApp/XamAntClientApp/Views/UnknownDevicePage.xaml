@@ -5,6 +5,7 @@
              xmlns:viewmodels="clr-namespace:XamAntClientApp.ViewModels"
              xmlns:unknowndevice="clr-namespace:SmallEarthTech.AntPlus.DeviceProfiles.UnknownDevice;assembly=AntPlus"
              x:DataType="viewmodels:UnknownDeviceViewModel"
+             Title="{Binding Title}"
              x:Class="XamAntClientApp.Views.UnknownDevicePage">
     <ContentPage.Resources>
         <conv:ByteArrayToStringConverter x:Key="ByteToStr"/>

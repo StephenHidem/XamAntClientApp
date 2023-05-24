@@ -2,7 +2,7 @@
 
 namespace XamAntClientApp.ViewModels
 {
-    internal class UnknownDeviceViewModel
+    internal class UnknownDeviceViewModel : BaseViewModel
     {
         private readonly UnknownDevice unknownDevice;
 
@@ -10,6 +10,7 @@ namespace XamAntClientApp.ViewModels
 
         public UnknownDeviceViewModel(UnknownDevice device)
         {
+            Title = "Unknown Device";
             unknownDevice = device;
         }
     }

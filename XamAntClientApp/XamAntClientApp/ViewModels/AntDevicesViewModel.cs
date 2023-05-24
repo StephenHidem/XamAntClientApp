@@ -7,12 +7,13 @@ using Xamarin.Forms;
 
 namespace XamAntClientApp.ViewModels
 {
-    internal partial class AntDevicesViewModel
+    internal class AntDevicesViewModel : BaseViewModel
     {
         public AntDeviceCollection AntDevices { get; }
 
         public AntDevicesViewModel()
         {
+            Title = "ANT Devices";
 
             // create ANT device collection
             AntDevices = new AntDeviceCollection(new AntRadio());

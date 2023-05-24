@@ -5,6 +5,7 @@
              xmlns:viewmodels="clr-namespace:XamAntClientApp.ViewModels"
              xmlns:converters="clr-namespace:XamAntClientApp.Converters"
              x:DataType="viewmodels:AntDevicesViewModel"
+             Title="{Binding Title}"
              x:Class="XamAntClientApp.Views.AntDevicesPage">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -13,12 +14,9 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <ListView Margin="10" ItemsSource="{Binding AntDevices}" ItemTapped="AntDeviceSelected">
-            <ListView.Header>
-                <Label  Text="ANT Devices" FontAttributes="Bold" FontSize="Large"/>
-            </ListView.Header>
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="antplus:AntDevice">
-                    <ImageCell ImageSource="{Binding DeviceImageStream, Converter={StaticResource StreamToImage}}"
+                    <ImageCell ImageSource="{Binding ., Converter={StaticResource StreamToImage}}"
                                Text="{Binding .}" Detail="{Binding ChannelId.DeviceNumber}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
