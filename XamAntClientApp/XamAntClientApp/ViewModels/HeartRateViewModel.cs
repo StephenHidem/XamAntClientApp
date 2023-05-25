@@ -85,5 +85,17 @@ namespace XamAntClientApp.ViewModels
                 HeartRateDevice.SetSportMode(ModeRequested);
             }
         }
+
+        [RelayCommand(CanExecute = nameof(CanSetSportMode))]
+        private void SetSportMode()
+        {
+            HeartRateDevice.SetSportMode(ModeRequested);
+        }
+
+        [RelayCommand]
+        private void SetHRFeature()
+        {
+            HeartRateDevice.SetHRFeature(ApplyFeature, EnableGymMode);
+        }
     }
 }
