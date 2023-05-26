@@ -9,7 +9,7 @@ namespace XamAntClientApp.Views.HeartRatePages
         public CapabilitiesPage()
         {
             InitializeComponent();
-            Title = "Capabilities";
+            Title = "Capabilities/Features";
         }
     }
 }

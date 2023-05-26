@@ -23,11 +23,6 @@ namespace XamAntClientApp.Views.HeartRatePages
                 BindingContext = vm
             };
             Children.Add(page);
-            page = new FeaturesPage
-            {
-                BindingContext = vm
-            };
-            Children.Add(page);
         }
     }
 }

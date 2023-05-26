@@ -5,8 +5,8 @@
              x:DataType="viewmodels:HeartRateViewModel"
              x:Class="XamAntClientApp.Views.HeartRatePages.GeneralPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Grid Margin="10">
+        <StackLayout Margin="10">
+            <Grid>
                 <Frame BorderColor="Black" Margin="0, 10, 0, 0">
                     <StackLayout>
                         <Label Text="{Binding HeartRateDevice.HeartRateData.ComputedHeartRate, StringFormat='Heart Rate: {0}'}"/>
@@ -18,7 +18,7 @@
                 </Frame>
                 <Label Text="Default Data" Style="{StaticResource HeaderLabelStyle}"/>
             </Grid>
-            <Grid Margin="10">
+            <Grid>
                 <Frame BorderColor="Black" Margin="0, 10, 0, 0">
                     <StackLayout>
                         <Label Text="{Binding HeartRateDevice.ManufacturerInfo.ManufacturingIdLsb, StringFormat='Man ID LSB: {0}'}"/>
@@ -27,7 +27,7 @@
                 </Frame>
                 <Label Text="Manufacturer Info" Style="{StaticResource HeaderLabelStyle}"/>
             </Grid>
-            <Grid Margin="10">
+            <Grid>
                 <Frame BorderColor="Black" Margin="0, 10, 0, 0">
                     <StackLayout>
                         <Label Text="{Binding HeartRateDevice.ProductInfo.HardwareVersion, StringFormat='Hardware Version: {0}'}"/>
@@ -37,7 +37,7 @@
                 </Frame>
                 <Label Text="Product Info" Style="{StaticResource HeaderLabelStyle}"/>
             </Grid>
-            <Grid Margin="10">
+            <Grid>
                 <Frame BorderColor="Black" Margin="0, 10, 0, 0">
                     <StackLayout>
                         <Label Text="{Binding HeartRateDevice.BatteryStatus.BatteryLevel, StringFormat='Battery Level: {0}'}"/>

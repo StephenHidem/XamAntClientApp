@@ -6,25 +6,40 @@
              x:DataType="viewmodels:HeartRateViewModel"
              x:Class="XamAntClientApp.Views.HeartRatePages.CapabilitiesPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Grid Margin="10">
+        <StackLayout Margin="10">
+            <Grid>
                 <Frame BorderColor="Black" Margin="0, 10, 0, 0">
-                    <StackLayout RadioButtonGroup.GroupName="SportMode" RadioButtonGroup.SelectedValue="{Binding ModeRequested}">
+                    <StackLayout>
                         <Label Text="{Binding HeartRateDevice.Capabilities.Supported, StringFormat='Capabilities Supported: {0}'}"/>
                         <Label Text="{Binding HeartRateDevice.Capabilities.Enabled, StringFormat='Capabilities Enabled: {0}'}"/>
-                        <Button Text="Get Capabilities" Command="{Binding RequestPageCommand}" Margin="4"></Button>
-                        <RadioButton Content="Generic" Value="{x:Static ap:SportMode.Generic}"/>
-                        <RadioButton Content="Running" Value="{x:Static ap:SportMode.Running}"/>
-                        <RadioButton Content="Cycling" Value="{x:Static ap:SportMode.Cycling}"/>
-                        <RadioButton Content="Swimming" Value="{x:Static ap:SportMode.Swimming}"/>
+                        <Button Text="Get Capabilities" Command="{Binding GetCapabilitiesCommand}" Margin="4"/>
+                    </StackLayout>
+                </Frame>
+                <Label Text="Capabilities" Style="{StaticResource HeaderLabelStyle}"/>
+            </Grid>
+            <Grid>
+                <Frame BorderColor="Black" Margin="0, 10, 0, 0">
+                    <StackLayout>
                         <StackLayout Orientation="Horizontal">
                             <CheckBox Color="Black" IsChecked="{Binding EnableGymMode}"/>
                             <Label Text="Enable Gym Mode" FontAttributes="Bold" VerticalOptions="Center"/>
                         </StackLayout>
-                        <Button Text="Set Capabilities" Command="{Binding SetCapabilitiesCommand}"/>
+                        <Button Text="Set Gym Mode" Command="{Binding SetGymModeCommand}"/>
                     </StackLayout>
                 </Frame>
-                <Label Text="Capabilities" Style="{StaticResource HeaderLabelStyle}"/>
+                <Label Text="Gym Mode" Style="{StaticResource HeaderLabelStyle}"/>
+            </Grid>
+            <Grid>
+                <Frame BorderColor="Black" Margin="0, 10, 0, 0">
+                    <StackLayout RadioButtonGroup.GroupName="SportMode" RadioButtonGroup.SelectedValue="{Binding ModeRequested}">
+                        <RadioButton Content="Generic" Value="{x:Static ap:SportMode.Generic}"/>
+                        <RadioButton Content="Running" Value="{x:Static ap:SportMode.Running}"/>
+                        <RadioButton Content="Cycling" Value="{x:Static ap:SportMode.Cycling}"/>
+                        <RadioButton Content="Swimming" Value="{x:Static ap:SportMode.Swimming}"/>
+                        <Button Text="Set Sport Mode" Command="{Binding SetSportModeCommand}"/>
+                    </StackLayout>
+                </Frame>
+                <Label Text="Sport Mode" Style="{StaticResource HeaderLabelStyle}"/>
             </Grid>
         </StackLayout>
     </ContentPage.Content>
