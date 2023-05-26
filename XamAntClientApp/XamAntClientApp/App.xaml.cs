@@ -1,5 +1,4 @@
-﻿using XamAntClientApp.Services;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace XamAntClientApp
 {
@@ -10,7 +9,6 @@ namespace XamAntClientApp
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
             MainPage = new AppShell();
         }
 
