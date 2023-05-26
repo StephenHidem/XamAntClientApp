@@ -45,14 +45,14 @@
                 <Setter Property="VerticalOptions" Value="Start"/>
             </Style>
 
-            <!--<Style TargetType="Button">
-                <Setter Property="Background" Value="{StaticResource HorizontalGradientBrush}"/>
-                <Setter Property="Padding" Value="8"/>
-                <Setter Property="Margin" Value="8"/>
-                <Setter Property="CornerRadius" Value="5"/>
-            </Style>-->
-
-
+            <Style TargetType="Label" x:Key="OfflineStyle">
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="Opacity" Value="0.4"/>
+                <Setter Property="FontSize" Value="48"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="Text" Value="OFFLINE"/>
+            </Style>
         </ResourceDictionary>        
     </Application.Resources>
 </Application>

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:XamAntClientApp.ViewModels"
+             x:DataType="viewmodels:HeartRateViewModel"
+             x:Class="XamAntClientApp.Views.HeartRatePages.GeneralPage">
+    <ContentPage.Content>
+        <Grid Margin="10">
+            <StackLayout>
+                <Grid>
+                    <Frame BorderColor="Black" Margin="0, 10, 0, 0">
+                        <StackLayout>
+                            <Label Text="{Binding HeartRateDevice.HeartRateData.ComputedHeartRate, StringFormat='Heart Rate: {0}'}"/>
+                            <Label Text="{Binding HeartRateDevice.HeartRateData.RRInterval, StringFormat='RR Interval: {0}'}"/>
+                            <Label Text="{Binding HeartRateDevice.HeartRateData.AccumulatedHeartBeatEventTime, StringFormat='Accumulated Heartbeat Event Time: {0}'}"/>
+                            <Label Text="{Binding HeartRateDevice.CumulativeOperatingTime, StringFormat='Cumulative Operating Time: {0}'}"/>
+                            <Label Text="{Binding HeartRateDevice.EventType, StringFormat='Heartbeat Event Type: {0}'}"/>
+                        </StackLayout>
+                    </Frame>
+                    <Label Text="Default Data" Style="{StaticResource HeaderLabelStyle}"/>
+                </Grid>
+                <Grid>
+                    <Frame BorderColor="Black" Margin="0, 10, 0, 0">
+                        <StackLayout>
+                            <Label Text="{Binding HeartRateDevice.ManufacturerInfo.ManufacturingIdLsb, StringFormat='Man ID LSB: {0}'}"/>
+                            <Label Text="{Binding HeartRateDevice.ManufacturerInfo.SerialNumber, StringFormat='Serial Number: {0}'}"/>
+                        </StackLayout>
+                    </Frame>
+                    <Label Text="Manufacturer Info" Style="{StaticResource HeaderLabelStyle}"/>
+                </Grid>
+                <Grid>
+                    <Frame BorderColor="Black" Margin="0, 10, 0, 0">
+                        <StackLayout>
+                            <Label Text="{Binding HeartRateDevice.ProductInfo.HardwareVersion, StringFormat='Hardware Version: {0}'}"/>
+                            <Label Text="{Binding HeartRateDevice.ProductInfo.SoftwareVersion, StringFormat='Software Version: {0}'}"/>
+                            <Label Text="{Binding HeartRateDevice.ProductInfo.ModelNumber, StringFormat='Model Number: {0}'}"/>
+                        </StackLayout>
+                    </Frame>
+                    <Label Text="Product Info" Style="{StaticResource HeaderLabelStyle}"/>
+                </Grid>
+                <Grid>
+                    <Frame BorderColor="Black" Margin="0, 10, 0, 0">
+                        <StackLayout>
+                            <Label Text="{Binding HeartRateDevice.BatteryStatus.BatteryLevel, StringFormat='Battery Level: {0}'}"/>
+                            <Label Text="{Binding HeartRateDevice.BatteryStatus.BatteryStatus, StringFormat='Battery Status: {0}'}"/>
+                            <Label Text="{Binding HeartRateDevice.BatteryStatus.BatteryVoltage, StringFormat='Battery Voltage: {0}'}"/>
+                        </StackLayout>
+                    </Frame>
+                    <Label Text="Battery Status" Style="{StaticResource HeaderLabelStyle}"/>
+                </Grid>
+            </StackLayout>
+            <Label IsVisible="{Binding HeartRateDevice.Offline}" Style="{StaticResource OfflineStyle}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

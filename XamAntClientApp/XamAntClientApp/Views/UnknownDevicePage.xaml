@@ -19,6 +19,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Label IsVisible="{Binding UnknownDevice.Offline}" Style="{StaticResource OfflineStyle}"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
