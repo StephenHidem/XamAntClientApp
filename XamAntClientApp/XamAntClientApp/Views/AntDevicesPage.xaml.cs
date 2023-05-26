@@ -16,12 +16,6 @@ namespace XamAntClientApp.Views
             BindingContext = vm = new AntDevicesViewModel();
         }
 
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            vm.OnAppearing();
-        }
-
         private void AntDeviceSelected(object sender, System.EventArgs e)
         {
             ListView listView = sender as ListView;

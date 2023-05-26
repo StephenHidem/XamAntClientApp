@@ -10,16 +10,20 @@ namespace XamAntClientApp.ViewModels
         [ObservableProperty]
         private HeartRate heartRateDevice;
 
-        //public List<HeartRate.DataPage> DataPageValues => Enum.GetValues(typeof(HeartRate.DataPage)).Cast<HeartRate.DataPage>().ToList();
-        //public List<SportMode> SportModeValues => Enum.GetValues(typeof(SportMode)).Cast<SportMode>().ToList();
-
         [ObservableProperty]
         private SportMode modeRequested;
-
         [ObservableProperty]
         private bool applyFeature;
         [ObservableProperty]
         private bool enableGymMode;
+        [ObservableProperty]
+        private bool isGymModeSupported;
+        [ObservableProperty]
+        private bool isRunningSupported;
+        [ObservableProperty]
+        private bool isCyclingSupported;
+        [ObservableProperty]
+        private bool isSwimmingSupported;
 
         public HeartRateViewModel(HeartRate heartRate)
         {
@@ -35,6 +39,10 @@ namespace XamAntClientApp.ViewModels
             {
                 App.Current.Dispatcher.BeginInvokeOnMainThread(() =>
                 {
+                    IsCyclingSupported = HeartRateDevice.Capabilities.Supported.HasFlag(HeartRate.Features.Cycling);
+                    IsRunningSupported = HeartRateDevice.Capabilities.Supported.HasFlag(HeartRate.Features.Running);
+                    IsSwimmingSupported = HeartRateDevice.Capabilities.Supported.HasFlag(HeartRate.Features.Swimming);
+                    IsGymModeSupported = HeartRateDevice.Capabilities.Supported.HasFlag(HeartRate.Features.GymMode);
                     SetGymModeCommand.NotifyCanExecuteChanged();
                     SetSportModeCommand.NotifyCanExecuteChanged();
                 });
@@ -54,7 +62,7 @@ namespace XamAntClientApp.ViewModels
         }
         private bool CanSetGymMode()
         {
-            return HeartRateDevice.Capabilities.Supported.HasFlag(HeartRate.Features.GymMode);
+            return IsGymModeSupported;
         }
 
         [RelayCommand(CanExecute = nameof(CanSetSportMode))]
@@ -64,9 +72,7 @@ namespace XamAntClientApp.ViewModels
         }
         private bool CanSetSportMode()
         {
-            return HeartRateDevice.Capabilities.Supported.HasFlag(HeartRate.Features.Running) ||
-                HeartRateDevice.Capabilities.Supported.HasFlag(HeartRate.Features.Cycling) ||
-                HeartRateDevice.Capabilities.Supported.HasFlag(HeartRate.Features.Swimming);
+            return IsRunningSupported || IsCyclingSupported || IsSwimmingSupported;
         }
 
         [RelayCommand]

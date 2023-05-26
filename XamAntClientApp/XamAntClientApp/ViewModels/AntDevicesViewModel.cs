@@ -20,11 +20,6 @@ namespace XamAntClientApp.ViewModels
             AntDevices = new AntDeviceCollection(new AntRadio());
         }
 
-        public void OnAppearing()
-        {
-
-        }
-
         public async void LoadDevicePage(AntDevice device)
         {
             Page page = device switch
