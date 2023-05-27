@@ -17,7 +17,8 @@
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="antplus:AntDevice">
                     <ImageCell ImageSource="{Binding ., Converter={StaticResource StreamToImage}}"
-                               Text="{Binding .}" Detail="{Binding ChannelId.DeviceNumber}"/>
+                               Text="{Binding .}"
+                               Detail="{Binding ChannelId.DeviceNumber, StringFormat='Device Number: {0}'}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

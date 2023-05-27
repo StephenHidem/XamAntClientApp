@@ -1,6 +1,6 @@
 ﻿using SmallEarthTech.AntPlus.DeviceProfiles.AssetTracker;
 
-namespace WpfUsbStickApp.ViewModels
+namespace XamAntClientApp.ViewModels
 {
     internal class AssetTrackerViewModel
     {

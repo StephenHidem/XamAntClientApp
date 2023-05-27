@@ -74,11 +74,5 @@ namespace XamAntClientApp.ViewModels
         {
             return IsRunningSupported || IsCyclingSupported || IsSwimmingSupported;
         }
-
-        [RelayCommand]
-        private void SetHRFeature()
-        {
-            HeartRateDevice.SetHRFeature(ApplyFeature, EnableGymMode);
-        }
     }
 }

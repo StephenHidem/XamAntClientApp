@@ -1,10 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:XamAntClientApp.ViewModels"
+             xmlns:assettracker="clr-namespace:SmallEarthTech.AntPlus.DeviceProfiles.AssetTracker;assembly=AntPlus"
+             x:DataType="viewmodels:AssetTrackerViewModel"
              x:Class="XamAntClientApp.Views.AssetTrackerPage">
     <ContentPage.Content>
         <Grid Margin="10">
-            
+            <StackLayout>
+                <ListView ItemsSource="{Binding AssetTracker.Assets}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell x:DataType="assettracker:Asset"
+                                      Text="{Binding Index, StringFormat='Index: {0}'}"
+                                      Detail="{Binding Name, StringFormat='Name: {0}'}">
+                            </TextCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <Label Style="{StaticResource OfflineStyle}" IsVisible="{Binding AssetTracker.Offline}"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

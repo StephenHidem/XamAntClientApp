@@ -1,4 +1,5 @@
 ﻿using SmallEarthTech.AntPlus;
+using SmallEarthTech.AntPlus.DeviceProfiles.AssetTracker;
 using SmallEarthTech.AntPlus.DeviceProfiles.HeartRate;
 using SmallEarthTech.AntPlus.DeviceProfiles.UnknownDevice;
 using XamAntClientApp.Services;
@@ -24,6 +25,7 @@ namespace XamAntClientApp.ViewModels
         {
             Page page = device switch
             {
+                AssetTracker => new AssetTrackerPage(device as AssetTracker),
                 HeartRate => new HeartRateTabbedPage(device as HeartRate),
                 UnknownDevice => new UnknownDevicePage(device as UnknownDevice),
                 _ => throw new System.NotImplementedException()
