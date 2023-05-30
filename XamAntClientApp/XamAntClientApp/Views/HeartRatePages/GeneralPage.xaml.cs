@@ -1,4 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using SmallEarthTech.AntPlus.DeviceProfiles.HeartRate;
+using XamAntClientApp.ViewModels;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace XamAntClientApp.Views.HeartRatePages
@@ -6,10 +8,11 @@ namespace XamAntClientApp.Views.HeartRatePages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GeneralPage : ContentPage
     {
-        public GeneralPage()
+        public GeneralPage(HeartRate heartRate)
         {
             InitializeComponent();
             Title = "General";
+            BindingContext = new HeartRateViewModel(heartRate);
         }
     }
 }

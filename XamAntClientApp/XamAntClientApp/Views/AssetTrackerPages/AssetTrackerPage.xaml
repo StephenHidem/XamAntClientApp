@@ -4,11 +4,11 @@
              xmlns:viewmodels="clr-namespace:XamAntClientApp.ViewModels"
              xmlns:assettracker="clr-namespace:SmallEarthTech.AntPlus.DeviceProfiles.AssetTracker;assembly=AntPlus"
              x:DataType="viewmodels:AssetTrackerViewModel"
-             x:Class="XamAntClientApp.Views.AssetTrackerPage">
+             x:Class="XamAntClientApp.Views.AssetTrackerPages.AssetTrackerPage">
     <ContentPage.Content>
         <Grid Margin="10">
             <StackLayout>
-                <ListView ItemsSource="{Binding AssetTracker.Assets}">
+                <ListView ItemsSource="{Binding AssetTracker.Assets}" ItemTapped="ListView_ItemTapped">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <TextCell x:DataType="assettracker:Asset"

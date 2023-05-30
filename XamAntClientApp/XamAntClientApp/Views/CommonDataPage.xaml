@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamAntClientApp.Views.CommonDataPage">
+    <ContentPage.Content>
+        <Grid Margin="10">
+            <StackLayout>
+                <Frame BorderColor="Black" Padding="8">
+                    <StackLayout>
+                        <Label Text="Manufacturer" FontAttributes="Bold"/>
+                        <Label Text="{Binding ManufacturerInfo.ManufacturerId, StringFormat='Manufacter ID: {0}'}"/>
+                        <Label Text="{Binding ManufacturerInfo.ModelNumber, StringFormat='Model Number: {0}'}"/>
+                        <Label Text="{Binding ManufacturerInfo.HardwareRevision, StringFormat='Hardware Revision: {0}'}"/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame BorderColor="Black" Padding="8">
+                    <StackLayout>
+                        <Label Text="Product Info" FontAttributes="Bold"/>
+                        <Label Text="{Binding ProductInfo.SoftwareRevision, StringFormat='Software Revision: {0}'}"/>
+                        <Label Text="{Binding ProductInfo.SerialNumber, StringFormat='Serial Number: {0}'}"/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame BorderColor="Black" Padding="8">
+                    <StackLayout>
+                        <Label Text="Battery Status" FontAttributes="Bold"/>
+                        <Label Text="{Binding BatteryStatus.NumberOfBatteries, StringFormat='Number of Batteries: {0}'}"/>
+                        <Label Text="{Binding BatteryStatus.Identifier, StringFormat='Battery ID: {0}'}"/>
+                        <Label Text="{Binding BatteryStatus.Status, StringFormat='Battery Status: {0}'}"/>
+                        <Label Text="{Binding BatteryStatus.BatteryVoltage, StringFormat='Voltage: {0:F3}'}"/>
+                        <Label Text="{Binding BatteryStatus.CumulativeOperatingTime, StringFormat='Operating Time: {0}'}"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

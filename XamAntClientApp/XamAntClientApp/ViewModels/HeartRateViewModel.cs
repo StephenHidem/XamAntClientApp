@@ -2,13 +2,13 @@
 using CommunityToolkit.Mvvm.Input;
 using SmallEarthTech.AntPlus;
 using SmallEarthTech.AntPlus.DeviceProfiles.HeartRate;
+using Xamarin.Essentials;
 
 namespace XamAntClientApp.ViewModels
 {
     internal partial class HeartRateViewModel : ObservableObject
     {
-        [ObservableProperty]
-        private HeartRate heartRateDevice;
+        public HeartRate HeartRateDevice { get; }
 
         [ObservableProperty]
         private SportMode modeRequested;
@@ -37,7 +37,7 @@ namespace XamAntClientApp.ViewModels
         {
             if (e.PropertyName == "Capabilities")
             {
-                App.Current.Dispatcher.BeginInvokeOnMainThread(() =>
+                MainThread.BeginInvokeOnMainThread(() =>
                 {
                     IsCyclingSupported = HeartRateDevice.Capabilities.Supported.HasFlag(HeartRate.Features.Cycling);
                     IsRunningSupported = HeartRateDevice.Capabilities.Supported.HasFlag(HeartRate.Features.Running);

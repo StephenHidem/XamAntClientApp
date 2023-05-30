@@ -1,4 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using SmallEarthTech.AntPlus.DeviceProfiles.HeartRate;
+using XamAntClientApp.ViewModels;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace XamAntClientApp.Views.HeartRatePages
@@ -6,10 +8,11 @@ namespace XamAntClientApp.Views.HeartRatePages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CapabilitiesPage : ContentPage
     {
-        public CapabilitiesPage()
+        public CapabilitiesPage(HeartRate heartRate)
         {
             InitializeComponent();
             Title = "Capabilities/Features";
+            BindingContext = new HeartRateViewModel(heartRate);
         }
     }
 }

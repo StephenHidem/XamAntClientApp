@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:XamAntClientApp.ViewModels"
+             x:DataType="viewmodels:SDMViewModel"
+             x:Class="XamAntClientApp.Views.StrideBasedMonitorPage">
+    <ContentPage.Content>
+        <Grid Margin="10">
+            <StackLayout>
+                <Label Text="{Binding SDM.InstantaneousCadence, StringFormat='Cadence: {0}'}"/>
+                <Label Text="{Binding SDM.InstantaneousSpeed, StringFormat='Speed: {0}'}"/>
+                <Label Text="{Binding SDM.AccumulatedDistance, StringFormat='Accumulated Distance: {0}'}"/>
+                <Label Text="{Binding SDM.AccumulatedCalories, StringFormat='Accumulated Calories: {0}'}"/>
+                <Label Text="{Binding SDM.AccumulatedStrideCount, StringFormat='Accumulated Stride Count: {0}'}"/>
+                <Label Text="{Binding SDM.AccumulatedTime, StringFormat='Accumulated Time: {0:F2}'}"/>
+                <Label Text="{Binding SDM.UpdateLatency, StringFormat='Update Latency: {0}'}"/>
+
+                <Label Text="{Binding SDM.Status.Location, StringFormat='Location: {0}'}"/>
+                <Label Text="{Binding SDM.Status.Health, StringFormat='Health: {0}'}"/>
+                <Label Text="{Binding SDM.Status.Battery, StringFormat='Battery: {0}'}"/>
+                <Label Text="{Binding SDM.Status.State, StringFormat='State: {0}'}"/>
+
+                <Frame BorderColor="Black" Padding="8">
+                    <StackLayout>
+                        <Label Text="Summaries" FontAttributes="Bold"/>
+                        <Label Text="{Binding SDM.StrideCountSummary, StringFormat='Stride Count: {0}'}"/>
+                        <Label Text="{Binding SDM.DistanceSummary, StringFormat='Distance: {0}'}"/>
+                        <Button Text="Request Summaries" Command="{Binding RequestSummaryCommand}"/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame BorderColor="Black" Padding="8">
+                    <StackLayout>
+                        <Label Text="Capabilities" FontAttributes="Bold"/>
+                        <Label Text="{Binding SDM.Capabilities}"/>
+                        <Button Text="Request Capabilities" Command="{Binding RequestCapabilitiesCommand}"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <Label Style="{StaticResource OfflineStyle}" IsVisible="{Binding SDM.Offline}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
