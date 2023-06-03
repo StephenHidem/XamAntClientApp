@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:XamAntClientApp.ViewModels"
+             x:DataType="viewmodels:BicyclePowerViewModel"
+             x:Class="XamAntClientApp.Views.BicyclePowerPages.BicycleCrankTorquePage">
+    <ContentPage.Content>
+        <Grid Margin="10">
+            <StackLayout>
+                <Frame>
+                    <StackLayout>
+                        <Label Text="Crank Torque" FontAttributes="Bold" TextDecorations="Underline"/>
+                        <Label Text="{Binding BicyclePower.CrankTorqueSensor.AverageAngularVelocity, StringFormat='Average Angular Velocity (rad/s): {0:F3}'}"/>
+                        <Label Text="{Binding BicyclePower.CrankTorqueSensor.AveragePower, StringFormat='Average Power (Watts): {0:F3}'}"/>
+                        <Label Text="{Binding BicyclePower.CrankTorqueSensor.AverageTorque, StringFormat='Average Torque (Nm): {0:F3}'}"/>
+                        <Label Text="{Binding BicyclePower.CrankTorqueSensor.InstantaneousCadence, StringFormat='Instantaneous Cadence (RPM): {0}'}"/>
+                        <Label Text="{Binding BicyclePower.CrankTorqueSensor.AverageCadence, StringFormat='AverageCadence (RPM): {0}'}"/>
+                    </StackLayout>
+                </Frame>
+                <Frame>
+                    <StackLayout>
+                        <Label Text="Torque Effectivenes and Pedal Smoothness" FontAttributes="Bold" TextDecorations="Underline"/>
+                        <Label Text="{Binding BicyclePower.PowerOnlySensor.TorqueEffectiveness.CombinedPedalSmoothness, StringFormat='Combined Pedal Smoothness: {0}'}"/>
+                        <Label Text="{Binding BicyclePower.PowerOnlySensor.TorqueEffectiveness.LeftPedalSmoothness, StringFormat='Left Pedal Smoothness: {0}'}"/>
+                        <Label Text="{Binding BicyclePower.PowerOnlySensor.TorqueEffectiveness.LeftTorqueEffectiveness, StringFormat='Left Torque Effectiveness: {0}'}"/>
+                        <Label Text="{Binding BicyclePower.PowerOnlySensor.TorqueEffectiveness.RightPedalSmoothness, StringFormat='Right Pedal Smoothness: {0}'}"/>
+                        <Label Text="{Binding BicyclePower.PowerOnlySensor.TorqueEffectiveness.RightTorqueEffectiveness, StringFormat='Right Torque Effectiveness: {0}'}"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <Label IsVisible="{Binding BicyclePower.Offline}" Style="{StaticResource OfflineStyle}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

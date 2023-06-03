@@ -35,8 +35,8 @@
                 </Setter>
                 <Setter Property="Background" Value="{StaticResource HorizontalGradientBrush}"/>
             </Style>
-            
-            <Style x:Key="HeaderLabelStyle" TargetType="Label">
+
+            <Style TargetType="Label" x:Key="HeaderLabelStyle">
                 <Setter Property="FontAttributes" Value="Bold"/>
                 <Setter Property="Margin" Value="20, 0, 0, 0"/>
                 <Setter Property="Padding" Value="10, 0, 10, 0"/>
@@ -52,6 +52,12 @@
                 <Setter Property="FontSize" Value="48"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
                 <Setter Property="Text" Value="OFFLINE"/>
+            </Style>
+
+            <Style TargetType="Frame">
+                <Setter Property="BorderColor" Value="Black"/>
+                <Setter Property="Padding" Value="8"/>
+                <Setter Property="CornerRadius" Value="5"/>
             </Style>
         </ResourceDictionary>        
     </Application.Resources>

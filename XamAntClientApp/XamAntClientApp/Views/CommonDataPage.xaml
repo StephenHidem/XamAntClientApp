@@ -5,26 +5,26 @@
     <ContentPage.Content>
         <Grid Margin="10">
             <StackLayout>
-                <Frame BorderColor="Black" Padding="8">
+                <Frame>
                     <StackLayout>
-                        <Label Text="Manufacturer" FontAttributes="Bold"/>
+                        <Label Text="Manufacturer" FontAttributes="Bold" TextDecorations="Underline"/>
                         <Label Text="{Binding ManufacturerInfo.ManufacturerId, StringFormat='Manufacter ID: {0}'}"/>
                         <Label Text="{Binding ManufacturerInfo.ModelNumber, StringFormat='Model Number: {0}'}"/>
                         <Label Text="{Binding ManufacturerInfo.HardwareRevision, StringFormat='Hardware Revision: {0}'}"/>
                     </StackLayout>
                 </Frame>
 
-                <Frame BorderColor="Black" Padding="8">
+                <Frame>
                     <StackLayout>
-                        <Label Text="Product Info" FontAttributes="Bold"/>
+                        <Label Text="Product Info" FontAttributes="Bold" TextDecorations="Underline"/>
                         <Label Text="{Binding ProductInfo.SoftwareRevision, StringFormat='Software Revision: {0}'}"/>
                         <Label Text="{Binding ProductInfo.SerialNumber, StringFormat='Serial Number: {0}'}"/>
                     </StackLayout>
                 </Frame>
 
-                <Frame BorderColor="Black" Padding="8">
+                <Frame>
                     <StackLayout>
-                        <Label Text="Battery Status" FontAttributes="Bold"/>
+                        <Label Text="Battery Status" FontAttributes="Bold" TextDecorations="Underline"/>
                         <Label Text="{Binding BatteryStatus.NumberOfBatteries, StringFormat='Number of Batteries: {0}'}"/>
                         <Label Text="{Binding BatteryStatus.Identifier, StringFormat='Battery ID: {0}'}"/>
                         <Label Text="{Binding BatteryStatus.Status, StringFormat='Battery Status: {0}'}"/>
