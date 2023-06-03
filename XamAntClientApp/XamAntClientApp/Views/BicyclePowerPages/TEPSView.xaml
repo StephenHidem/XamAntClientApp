@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:bicyclepower="clr-namespace:SmallEarthTech.AntPlus.DeviceProfiles.BicyclePower;assembly=AntPlus"
+             x:Name="this"
+             x:DataType="bicyclepower:TorqueEffectivenessAndPedalSmoothness"
+             x:Class="XamAntClientApp.Views.BicyclePowerPages.TEPSView">
+  <ContentView.Content>
+        <Frame>
+            <StackLayout>
+                <Label Text="Torque Effectivenes and Pedal Smoothness" FontAttributes="Bold" TextDecorations="Underline"/>
+                <Label Text="{Binding CombinedPedalSmoothness, StringFormat='Combined Pedal Smoothness: {0}'}"/>
+                <Label Text="{Binding LeftPedalSmoothness, StringFormat='Left Pedal Smoothness: {0}'}"/>
+                <Label Text="{Binding LeftTorqueEffectiveness, StringFormat='Left Torque Effectiveness: {0}'}"/>
+                <Label Text="{Binding RightPedalSmoothness, StringFormat='Right Pedal Smoothness: {0}'}"/>
+                <Label Text="{Binding RightTorqueEffectiveness, StringFormat='Right Torque Effectiveness: {0}'}"/>
+            </StackLayout>
+        </Frame>
+    </ContentView.Content>
+</ContentView>

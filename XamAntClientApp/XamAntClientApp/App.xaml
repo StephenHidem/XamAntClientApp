@@ -57,7 +57,7 @@
             <Style TargetType="Frame">
                 <Setter Property="BorderColor" Value="Black"/>
                 <Setter Property="Padding" Value="8"/>
-                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="CornerRadius" Value="10"/>
             </Style>
         </ResourceDictionary>        
     </Application.Resources>

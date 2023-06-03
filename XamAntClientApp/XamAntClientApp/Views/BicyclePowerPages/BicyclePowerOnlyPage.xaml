@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:XamAntClientApp.ViewModels"
+             xmlns:bicyclepowerpages="clr-namespace:XamAntClientApp.Views.BicyclePowerPages"
              x:DataType="viewmodels:BicyclePowerViewModel"
              x:Class="XamAntClientApp.Views.BicyclePowerPages.BicyclePowerOnlyPage">
     <ContentPage.Content>
@@ -16,16 +17,7 @@
                         <Label Text="{Binding BicyclePower.PowerOnlySensor.AveragePower, StringFormat='Average Power (Watts): {0:F3}'}"/>
                     </StackLayout>
                 </Frame>
-                <Frame>
-                    <StackLayout>
-                        <Label Text="Torque Effectivenes and Pedal Smoothness" FontAttributes="Bold" TextDecorations="Underline"/>
-                        <Label Text="{Binding BicyclePower.PowerOnlySensor.TorqueEffectiveness.CombinedPedalSmoothness, StringFormat='Combined Pedal Smoothness: {0}'}"/>
-                        <Label Text="{Binding BicyclePower.PowerOnlySensor.TorqueEffectiveness.LeftPedalSmoothness, StringFormat='Left Pedal Smoothness: {0}'}"/>
-                        <Label Text="{Binding BicyclePower.PowerOnlySensor.TorqueEffectiveness.LeftTorqueEffectiveness, StringFormat='Left Torque Effectiveness: {0}'}"/>
-                        <Label Text="{Binding BicyclePower.PowerOnlySensor.TorqueEffectiveness.RightPedalSmoothness, StringFormat='Right Pedal Smoothness: {0}'}"/>
-                        <Label Text="{Binding BicyclePower.PowerOnlySensor.TorqueEffectiveness.RightTorqueEffectiveness, StringFormat='Right Torque Effectiveness: {0}'}"/>
-                    </StackLayout>
-                </Frame>
+                <bicyclepowerpages:TEPSView BindingContext="{Binding BicyclePower.PowerOnlySensor.TorqueEffectiveness}"/>
             </StackLayout>
             <Label IsVisible="{Binding BicyclePower.Offline}" Style="{StaticResource OfflineStyle}"/>
         </Grid>
