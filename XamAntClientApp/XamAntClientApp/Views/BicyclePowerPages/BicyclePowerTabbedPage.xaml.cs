@@ -34,7 +34,7 @@ namespace XamAntClientApp.Views.BicyclePowerPages
 
         private void AddStandardPages(BicyclePowerViewModel vm)
         {
-
+            Children.Add(new BicycleCalibrationPage(vm));
         }
     }
 }

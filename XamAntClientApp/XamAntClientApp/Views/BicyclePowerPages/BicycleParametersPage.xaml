@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:XamAntClientApp.ViewModels"
+             xmlns:dp="clr-namespace:SmallEarthTech.AntPlus.DeviceProfiles.BicyclePower;assembly=AntPlus"
+             x:DataType="viewmodels:BicyclePowerViewModel"
+             x:Class="XamAntClientApp.Views.BicyclePowerPages.BicycleParametersPage">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout>
+                <Label Text="{Binding BicyclePower.PowerOnlySensor.Parameters.Crank.CrankLength, StringFormat='Crank Length: {0}'}"/>
+                <Label Text="{Binding BicyclePower.PowerOnlySensor.Parameters.Crank.CrankStatus, StringFormat='Crank Status: {0}'}"/>
+                <Label Text="{Binding BicyclePower.PowerOnlySensor.Parameters.Crank.MismatchStatus, StringFormat='Mismatch Status: {0}'}"/>
+                <Label Text="{Binding BicyclePower.PowerOnlySensor.Parameters.Crank.AvailabilityStatus, StringFormat='Availability Status: {0}'}"/>
+                <Label Text="{Binding BicyclePower.PowerOnlySensor.Parameters.Crank.CustomCalibration, StringFormat='Custom Calibration: {0}'}"/>
+                <Label Text="{Binding BicyclePower.PowerOnlySensor.Parameters.Crank.AutoCrankLength, StringFormat='Auto Crank Length: {0}'}"/>
+                <Label Text="{Binding BicyclePower.PowerOnlySensor.Parameters.PeakTorqueThreshold, StringFormat='Peak Torque Threshold: {0}'}"/>
+                <Label Text="{Binding BicyclePower.PowerOnlySensor.Parameters.RiderPositionTimeOffset, StringFormat='Rider Position Time Offset: {0}'}"/>
+                <Button Text="Get Crank Length" Command="{Binding GetParametersCommand}"
+                                CommandParameter="{x:Static dp:Subpage.CrankParameters}"/>
+                <Button Text="Get Peak Torque Threshold" Command="{Binding GetParametersCommand}"
+                                CommandParameter="{x:Static dp:Subpage.PowerPhaseConfiguration}"/>
+                <Button Text="Get Rider Position Time Offset" Command="{Binding GetParametersCommand}"
+                                CommandParameter="{x:Static dp:Subpage.RiderPositionConfiguration}"/>
+            </StackLayout>
+            <Label IsVisible="{Binding BicyclePower.Offline}" Style="{StaticResource OfflineStyle}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
