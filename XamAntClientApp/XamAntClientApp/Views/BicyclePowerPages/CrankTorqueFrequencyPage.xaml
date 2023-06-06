@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:bp="clr-namespace:SmallEarthTech.AntPlus.DeviceProfiles.BicyclePower;assembly=AntPlus"
+             xmlns:viewmodels="clr-namespace:XamAntClientApp.ViewModels"
+             x:DataType="viewmodels:BicyclePowerViewModel"
+             x:Class="XamAntClientApp.Views.BicyclePowerPages.CrankTorqueFrequencyPage">
+    <ContentPage.Content>
+        <Grid Margin="10">
+            <StackLayout>
+                <Frame BindingContext="{Binding BicyclePower.CTFSensor}">
+                    <StackLayout x:DataType="bp:CrankTorqueFrequencySensor">
+                        <Label Text="Crank Torque Frequency" FontAttributes="Bold" TextDecorations="Underline"/>
+                        <Label Text="{Binding Slope, StringFormat='Slope (Nm/Hz): {0:F1}'}"/>
+                        <Label Text="{Binding Cadence, StringFormat='Cadence (RPM): {0:F3}'}"/>
+                        <Label Text="{Binding Torque, StringFormat='Torque (Nm): {0:F3}'}"/>
+                        <Label Text="{Binding Power, StringFormat='Power (Watts): {0:F3}'}"/>
+                    </StackLayout>
+                </Frame>
+                <Frame>
+                    <StackLayout>
+                        <Button Text="Calibration Request" Command="{Binding ManualCalRequestCommand}"/>
+                        <Label Text="{Binding BicyclePower.CTFSensor.Offset, StringFormat='Calibration Offset (Hz): {0}'}"/>
+                    </StackLayout>
+                </Frame>
+                <Frame>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Entry Grid.Column="0" Grid.Row="0" x:Name="Slope" Keyboard="Numeric"/>
+                        <Button Grid.Column="1" Grid.Row="0" Text="Save Slope to Flash" Command="{Binding SaveSlopeCommand}" CommandParameter="{Binding Source={x:Reference Slope}, Path=Text}"/>
+                        <Entry Grid.Column="0" Grid.Row="1" x:Name="SerialNumber" Keyboard="Numeric"/>
+                        <Button Grid.Column="1" Grid.Row="1" Text="Save Serial Number to Flash" Command="{Binding SaveSerialNumberCommand}" CommandParameter="{Binding Source={x:Reference SerialNumber}, Path=Text}"/>
+                        <Label Grid.ColumnSpan="2" Grid.Row="2" VerticalOptions="Center" Text="{Binding CtfAckMessage, StringFormat='ACK Message: {0}'}"/>
+                    </Grid>
+                </Frame>
+            </StackLayout>
+            <Label IsVisible="{Binding BicyclePower.Offline}" Style="{StaticResource OfflineStyle}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

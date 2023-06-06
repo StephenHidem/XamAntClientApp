@@ -27,6 +27,9 @@ namespace XamAntClientApp.Views.BicyclePowerPages
                     Children.Add(new BicycleCrankTorquePage(vm));
                     AddStandardPages(vm);
                     break;
+                case SensorType.CrankTorqueFrequency:
+                    Children.Add(new CrankTorqueFrequencyPage(vm));
+                    break;
                 default:
                     break;
             }
@@ -34,6 +37,7 @@ namespace XamAntClientApp.Views.BicyclePowerPages
 
         private void AddStandardPages(BicyclePowerViewModel vm)
         {
+            Children.Add(new CommonDataPage(vm.BicyclePower.PowerOnlySensor.CommonDataPages));
             Children.Add(new BicycleCalibrationPage(vm));
             Children.Add(new BicycleParametersPage(vm));
         }

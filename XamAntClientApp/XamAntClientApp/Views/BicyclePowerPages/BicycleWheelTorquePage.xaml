@@ -2,21 +2,22 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:XamAntClientApp.ViewModels"
+             xmlns:bp="clr-namespace:SmallEarthTech.AntPlus.DeviceProfiles.BicyclePower;assembly=AntPlus"
              xmlns:bicyclepowerpages="clr-namespace:XamAntClientApp.Views.BicyclePowerPages"
              x:DataType="viewmodels:BicyclePowerViewModel"
              x:Class="XamAntClientApp.Views.BicyclePowerPages.BicycleWheelTorquePage">
     <ContentPage.Content>
         <Grid Margin="10">
             <StackLayout>
-                <Frame>
-                    <StackLayout>
+                <Frame BindingContext="{Binding BicyclePower.WheelTorqueSensor}">
+                    <StackLayout x:DataType="bp:StandardWheelTorqueSensor">
                         <Label Text="Wheel Torque" FontAttributes="Bold" TextDecorations="Underline"/>
-                        <Label Text="{Binding BicyclePower.WheelTorqueSensor.AverageAngularVelocity, StringFormat='Average Angular Velocity (rad/s): {0:F3}'}"/>
-                        <Label Text="{Binding BicyclePower.WheelTorqueSensor.AveragePower, StringFormat='Average Power (Watts): {0:F3}'}"/>
-                        <Label Text="{Binding BicyclePower.WheelTorqueSensor.AverageTorque, StringFormat='Average Torque (Nm): {0:F3}'}"/>
-                        <Label Text="{Binding BicyclePower.WheelTorqueSensor.InstantaneousCadence, StringFormat='Instantaneous Cadence (RPM): {0}'}"/>
-                        <Label Text="{Binding BicyclePower.WheelTorqueSensor.AverageSpeed, StringFormat='Average Speed (km/h): {0:F3}'}"/>
-                        <Label Text="{Binding BicyclePower.WheelTorqueSensor.AccumulatedDistance, StringFormat='Accumulated Distance (m): {0:F3}'}"/>
+                        <Label Text="{Binding AverageAngularVelocity, StringFormat='Average Angular Velocity (rad/s): {0:F3}'}"/>
+                        <Label Text="{Binding AveragePower, StringFormat='Average Power (Watts): {0:F3}'}"/>
+                        <Label Text="{Binding AverageTorque, StringFormat='Average Torque (Nm): {0:F3}'}"/>
+                        <Label Text="{Binding InstantaneousCadence, StringFormat='Instantaneous Cadence (RPM): {0}'}"/>
+                        <Label Text="{Binding AverageSpeed, StringFormat='Average Speed (km/h): {0:F3}'}"/>
+                        <Label Text="{Binding AccumulatedDistance, StringFormat='Accumulated Distance (m): {0:F3}'}"/>
                     </StackLayout>
                 </Frame>
                 <bicyclepowerpages:TEPSView BindingContext="{Binding BicyclePower.PowerOnlySensor.TorqueEffectiveness}"/>
