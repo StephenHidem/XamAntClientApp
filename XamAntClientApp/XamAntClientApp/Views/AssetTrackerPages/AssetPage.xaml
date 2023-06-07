@@ -2,14 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:assettracker="clr-namespace:SmallEarthTech.AntPlus.DeviceProfiles.AssetTracker;assembly=AntPlus"
-             xmlns:converters="clr-namespace:XamAntClientApp.Converters"
              x:DataType="assettracker:Asset"
              x:Class="XamAntClientApp.Views.AssetTrackerPages.AssetPage">
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <converters:DegreesToSemicirclesConverter x:Key="DegToSemi"/>
-        </ResourceDictionary>
-    </ContentPage.Resources>
     <ContentPage.Content>
         <Grid Margin="10">
             <StackLayout>
@@ -19,8 +13,8 @@
                 <Label Text="{Binding Situation, StringFormat='Situation: {0}'}"/>
                 <Label Text="{Binding Bearing, StringFormat='Bearing: {0}'}"/>
                 <Label Text="{Binding Distance, StringFormat='Distance: {0}'}"/>
-                <Label Text="{Binding Latitude, StringFormat='Latitude: {0}', Converter={StaticResource DegToSemi}}"/>
-                <Label Text="{Binding Longitude, StringFormat='Longitude: {0}', Converter={StaticResource DegToSemi}}"/>
+                <Label Text="{Binding Latitude, StringFormat='Latitude: {0:F6}'}"/>
+                <Label Text="{Binding Longitude, StringFormat='Longitude: {0:F6}'}"/>
             </StackLayout>
         </Grid>
     </ContentPage.Content>
