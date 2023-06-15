@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:XamAntClientApp.ViewModels"
+             x:DataType="viewmodels:GeocacheViewModel"
+             x:Class="XamAntClientApp.Views.GeocachePages.ProgramGeocachePage">
+    <ContentPage.Content>
+        <Grid Margin="10">
+            <StackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Trackable ID:" Grid.Row="0" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Text="{Binding TrackableId}" MaxLength="9" Grid.Row="0" Grid.Column="1"/>
+                    <Label Text="PIN:" Grid.Row="1" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Text="{Binding Pin}" MaxLength="10" Grid.Row="1" Grid.Column="1"/>
+                    <Label Text="Latitude:" Grid.Row="2" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Text="{Binding Latitude}" Grid.Row="2" Grid.Column="1"/>
+                    <Label Text="Longitude:" Grid.Row="3" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Text="{Binding Longitude}" Grid.Row="3" Grid.Column="1"/>
+                </Grid>
+                <Label Text="Hint:"/>
+                <Editor Text="{Binding Hint}" MaxLength="168" AutoSize="TextChanges"/>
+                <Button Text="Program Geocache" Command="{Binding ProgramGeocacheCommand}"/>
+            </StackLayout>
+            <Label IsVisible="{Binding Geocache.Offline}" Style="{StaticResource OfflineStyle}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

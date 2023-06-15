@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:XamAntClientApp.ViewModels"
+             xmlns:converters="clr-namespace:XamAntClientApp.Converters"
+             x:DataType="viewmodels:GeocacheViewModel"
+             x:Class="XamAntClientApp.Views.GeocachePages.GeocachePage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ByteArrayToStringConverter x:Key="ByteToStr"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid Margin="10">
+            <StackLayout>
+                <Frame>
+                    <StackLayout>
+                        <Label Text="Data Pages" FontAttributes="Bold" TextDecorations="Underline"/>
+                        <Label Text="{Binding Geocache.MessageRate, StringFormat='Message Rate: {0:F2}Hz'}"/>
+                        <Label Text="{Binding Geocache.TrackableId, StringFormat='Trackable ID: {0}'}"/>
+                        <Label Text="{Binding Geocache.ProgrammingPIN, StringFormat='Programming PIN: {0}'}"/>
+                        <Label Text="{Binding Geocache.TotalPagesProgrammed, StringFormat='Total Pages Programmed: {0}'}"/>
+                        <Label Text="{Binding Geocache.NextStageLatitude, StringFormat='Next Stage Latitude: {0:F6}'}"/>
+                        <Label Text="{Binding Geocache.NextStageLongitude, StringFormat='Next Stage Longitude: {0:F6}'}"/>
+                        <Label Text="{Binding Geocache.Hint, StringFormat='Hint: {0}'}"/>
+                        <Label Text="{Binding Geocache.NumberOfVisits, StringFormat='Number of visits: {0}'}"/>
+                        <Label Text="{Binding Geocache.LastVisitTimestamp, StringFormat='Last visit: {0}'}"/>
+                        <Button Text="Request PIN" Command="{Binding RequestPINCommand}"/>
+                        <Button Text="Log Visit" Command="{Binding LogVisitCommand}"/>
+                    </StackLayout>
+                </Frame>
+                <Frame>
+                    <StackLayout>
+                        <Label Text="Authentication" FontAttributes="Bold" TextDecorations="Underline"/>
+                        <Label Text="{Binding Geocache.AuthenticationToken, StringFormat='Authentication Token: {0}', Converter={StaticResource ByteToStr}}"/>
+                        <Button Text="Request Authentication" Command="{Binding RequestAuthenticationCommand}"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <Label IsVisible="{Binding Geocache.Offline}" Style="{StaticResource OfflineStyle}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

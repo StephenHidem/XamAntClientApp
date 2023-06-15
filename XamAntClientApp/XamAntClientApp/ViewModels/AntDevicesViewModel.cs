@@ -1,6 +1,7 @@
 ﻿using SmallEarthTech.AntPlus;
 using SmallEarthTech.AntPlus.DeviceProfiles.AssetTracker;
 using SmallEarthTech.AntPlus.DeviceProfiles.BicyclePower;
+using SmallEarthTech.AntPlus.DeviceProfiles.Geocache;
 using SmallEarthTech.AntPlus.DeviceProfiles.HeartRate;
 using SmallEarthTech.AntPlus.DeviceProfiles.StrideBasedSpeedAndDistance;
 using SmallEarthTech.AntPlus.DeviceProfiles.UnknownDevice;
@@ -8,6 +9,7 @@ using XamAntClientApp.Services;
 using XamAntClientApp.Views;
 using XamAntClientApp.Views.AssetTrackerPages;
 using XamAntClientApp.Views.BicyclePowerPages;
+using XamAntClientApp.Views.GeocachePages;
 using XamAntClientApp.Views.HeartRatePages;
 using Xamarin.Forms;
 
@@ -31,11 +33,12 @@ namespace XamAntClientApp.ViewModels
             {
                 AssetTracker => new AssetTrackerTabbedPage(device as AssetTracker),
                 BicyclePower => new BicyclePowerTabbedPage(device as BicyclePower),
+                Geocache => new GeocacheTabbedPage(device as Geocache),
                 HeartRate => new HeartRateTabbedPage(device as HeartRate),
                 StrideBasedSpeedAndDistance => new StrideBasedMonitorPage(device as StrideBasedSpeedAndDistance),
                 UnknownDevice => new UnknownDevicePage(device as UnknownDevice),
                 _ => throw new System.NotImplementedException()
-            }; ;
+            };
 
             await Shell.Current.Navigation.PushAsync(page);
         }
