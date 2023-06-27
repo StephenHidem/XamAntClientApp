@@ -15,7 +15,7 @@ namespace XamAntClientApp.Views.BicyclePowerPages
             BicyclePowerViewModel vm = new(bicyclePower);
             switch (bicyclePower.Sensor)
             {
-                case SensorType.PowerOnly:
+                case SensorType.Power:
                     Children.Add(new BicyclePowerOnlyPage(vm));
                     AddStandardPages(vm);
                     break;
@@ -37,7 +37,7 @@ namespace XamAntClientApp.Views.BicyclePowerPages
 
         private void AddStandardPages(BicyclePowerViewModel vm)
         {
-            Children.Add(new CommonDataPage(vm.BicyclePower.PowerOnlySensor.CommonDataPages));
+            Children.Add(new CommonDataPage(vm.BicyclePower.PowerSensor.CommonDataPages));
             Children.Add(new BicycleCalibrationPage(vm));
             Children.Add(new BicycleParametersPage(vm));
         }

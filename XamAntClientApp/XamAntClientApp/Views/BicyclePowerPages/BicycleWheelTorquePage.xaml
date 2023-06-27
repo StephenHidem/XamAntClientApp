@@ -20,7 +20,7 @@
                         <Label Text="{Binding AccumulatedDistance, StringFormat='Accumulated Distance (m): {0:F3}'}"/>
                     </StackLayout>
                 </Frame>
-                <bicyclepowerpages:TEPSView BindingContext="{Binding BicyclePower.PowerOnlySensor.TorqueEffectiveness}"/>
+                <bicyclepowerpages:TEPSView BindingContext="{Binding BicyclePower.PowerSensor.TorqueEffectiveness}"/>
             </StackLayout>
             <Label IsVisible="{Binding BicyclePower.Offline}" Style="{StaticResource OfflineStyle}"/>
         </Grid>

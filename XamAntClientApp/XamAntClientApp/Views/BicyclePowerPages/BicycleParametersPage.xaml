@@ -8,7 +8,7 @@
     <ContentPage.Content>
         <Grid Margin="10">
             <StackLayout>
-                <Frame BindingContext="{Binding BicyclePower.PowerOnlySensor.Parameters}">
+                <Frame BindingContext="{Binding BicyclePower.PowerSensor.Parameters}">
                     <StackLayout x:DataType="bp:Parameters">
                         <Label Text="Status" FontAttributes="Bold" TextDecorations="Underline"/>
                         <Label Text="{Binding Crank.CrankLength, StringFormat='Crank Length: {0}'}"/>

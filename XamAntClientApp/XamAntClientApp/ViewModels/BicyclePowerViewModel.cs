@@ -53,10 +53,10 @@ namespace XamAntClientApp.ViewModels
         private bool CanSetCustomCalParameters() => BicyclePower.Sensor != SensorType.CrankTorqueFrequency;
 
         [RelayCommand]
-        private void GetParameters(Subpage subpage) => BicyclePower.PowerOnlySensor.Parameters.GetParameters(subpage);
+        private void GetParameters(Subpage subpage) => BicyclePower.PowerSensor.Parameters.GetParameters(subpage);
 
         [RelayCommand]
-        private void SetCrankLength(string length) => BicyclePower.PowerOnlySensor.Parameters.SetCrankLength(Convert.ToDouble(length));
+        private void SetCrankLength(string length) => BicyclePower.PowerSensor.Parameters.SetCrankLength(Convert.ToDouble(length));
 
         [RelayCommand]
         private void SaveSlope(string slope)
