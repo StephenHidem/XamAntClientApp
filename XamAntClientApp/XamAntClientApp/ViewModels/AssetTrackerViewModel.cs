@@ -4,9 +4,9 @@ namespace XamAntClientApp.ViewModels
 {
     internal class AssetTrackerViewModel
     {
-        public AssetTracker AssetTracker { get; }
+        public Tracker AssetTracker { get; }
 
-        public AssetTrackerViewModel(AssetTracker tracker)
+        public AssetTrackerViewModel(Tracker tracker)
         {
             AssetTracker = tracker;
         }

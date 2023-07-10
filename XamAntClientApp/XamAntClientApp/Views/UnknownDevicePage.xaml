@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:conv="clr-namespace:XamAntClientApp.Converters"
              xmlns:viewmodels="clr-namespace:XamAntClientApp.ViewModels"
-             xmlns:unknowndevice="clr-namespace:SmallEarthTech.AntPlus.DeviceProfiles.UnknownDevice;assembly=AntPlus"
              x:DataType="viewmodels:UnknownDeviceViewModel"
              Title="{Binding Title}"
              x:Class="XamAntClientApp.Views.UnknownDevicePage">
@@ -12,14 +11,14 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <Grid Margin="10">
-            <ListView ItemsSource="{Binding UnknownDevice.DataPages}" Header="Data Page">
+            <ListView ItemsSource="{Binding Device.DataPages}" Header="Data Page">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell x:DataType="unknowndevice:DataPage" Text="{Binding Page, Converter={StaticResource ByteToStr}}"/>
+                        <TextCell Text="{Binding ., Converter={StaticResource ByteToStr}}"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Label IsVisible="{Binding UnknownDevice.Offline}" Style="{StaticResource OfflineStyle}"/>
+            <Label IsVisible="{Binding Device.Offline}" Style="{StaticResource OfflineStyle}"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

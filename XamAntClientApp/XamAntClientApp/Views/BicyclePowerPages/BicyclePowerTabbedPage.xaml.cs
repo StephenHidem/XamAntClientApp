@@ -8,7 +8,7 @@ namespace XamAntClientApp.Views.BicyclePowerPages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BicyclePowerTabbedPage : TabbedPage
     {
-        public BicyclePowerTabbedPage(BicyclePower bicyclePower)
+        public BicyclePowerTabbedPage(Bicycle bicyclePower)
         {
             InitializeComponent();
             Title = "Bicycle Power";

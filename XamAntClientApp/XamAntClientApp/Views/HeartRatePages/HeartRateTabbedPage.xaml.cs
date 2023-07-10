@@ -1,4 +1,4 @@
-﻿using SmallEarthTech.AntPlus.DeviceProfiles.HeartRate;
+﻿using SmallEarthTech.AntPlus.DeviceProfiles;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

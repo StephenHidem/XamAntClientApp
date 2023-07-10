@@ -9,7 +9,7 @@ namespace XamAntClientApp.Views.AssetTrackerPages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AssetTrackerPage : ContentPage
     {
-        public AssetTrackerPage(AssetTracker assetTracker)
+        public AssetTrackerPage(Tracker assetTracker)
         {
             InitializeComponent();
             Title = "Assets";

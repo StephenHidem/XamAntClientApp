@@ -1,4 +1,4 @@
-﻿using SmallEarthTech.AntPlus.DeviceProfiles.Geocache;
+﻿using SmallEarthTech.AntPlus.DeviceProfiles;
 using XamAntClientApp.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

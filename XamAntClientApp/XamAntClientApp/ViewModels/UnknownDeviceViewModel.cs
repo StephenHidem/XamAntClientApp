@@ -1,4 +1,4 @@
-﻿using SmallEarthTech.AntPlus.DeviceProfiles.UnknownDevice;
+﻿using SmallEarthTech.AntPlus.DeviceProfiles;
 
 namespace XamAntClientApp.ViewModels
 {
@@ -6,7 +6,7 @@ namespace XamAntClientApp.ViewModels
     {
         private readonly UnknownDevice unknownDevice;
 
-        public UnknownDevice UnknownDevice => unknownDevice;
+        public UnknownDevice Device => unknownDevice;
 
         public UnknownDeviceViewModel(UnknownDevice device)
         {

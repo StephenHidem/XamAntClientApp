@@ -7,13 +7,13 @@ namespace XamAntClientApp.ViewModels
 {
     public partial class BicyclePowerViewModel : ObservableObject
     {
-        public BicyclePower BicyclePower { get; }
+        public Bicycle BicyclePower { get; }
         public SensorType SensorType => BicyclePower.Sensor;
 
         [ObservableProperty]
         private string ctfAckMessage;
 
-        public BicyclePowerViewModel(BicyclePower bicyclePower)
+        public BicyclePowerViewModel(Bicycle bicyclePower)
         {
             BicyclePower = bicyclePower;
             if (bicyclePower.Sensor == SensorType.CrankTorqueFrequency)

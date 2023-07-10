@@ -7,7 +7,7 @@ namespace XamAntClientApp.Views.AssetTrackerPages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AssetTrackerTabbedPage : TabbedPage
     {
-        public AssetTrackerTabbedPage(AssetTracker assetTracker)
+        public AssetTrackerTabbedPage(Tracker assetTracker)
         {
             InitializeComponent();
             Title = "Asset Tracker";
