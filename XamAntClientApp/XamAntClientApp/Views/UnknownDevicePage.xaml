@@ -1,19 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
              xmlns:conv="clr-namespace:XamAntClientApp.Converters"
              xmlns:viewmodels="clr-namespace:XamAntClientApp.ViewModels"
              x:DataType="viewmodels:UnknownDeviceViewModel"
              Title="{Binding Title}"
              x:Class="XamAntClientApp.Views.UnknownDevicePage">
     <ContentPage.Resources>
-        <conv:ByteArrayToStringConverter x:Key="ByteToStr"/>
+        <ResourceDictionary>
+            <conv:ByteArrayToStringConverter x:Key="ByteToStr"/>
+        </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
         <Grid Margin="10">
-            <ListView ItemsSource="{Binding Device.DataPages}" Header="Data Page">
+            <ListView ItemsSource="{Binding Device.DataPages}" Header="Data Pages">
                 <ListView.ItemTemplate>
-                    <DataTemplate>
+                    <DataTemplate x:DataType="sys:Array">
                         <TextCell Text="{Binding ., Converter={StaticResource ByteToStr}}"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
