@@ -8,6 +8,7 @@
         <Grid Margin="10">
             <StackLayout>
                 <Label Text="{Binding Name, StringFormat='Name: {0}'}"/>
+                <Label Text="{Binding Type, StringFormat='Type: {0}'}"/>
                 <Label Text="{Binding Color, StringFormat='Color: {0}'}"/>
                 <Label Text="{Binding Status, StringFormat='Status: {0}'}"/>
                 <Label Text="{Binding Situation, StringFormat='Situation: {0}'}"/>

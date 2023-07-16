@@ -29,7 +29,7 @@ namespace XamAntClientApp.Services
                     // save the remote endpoint in case we send messages to it
                     epAddr = result.RemoteEndPoint;
 
-                    MemoryStream ms = new MemoryStream(result.Buffer);
+                    MemoryStream ms = new(result.Buffer);
                     XmlDictionaryReader reader = XmlDictionaryReader.CreateTextReader(ms, new XmlDictionaryReaderQuotas());
                     DataContractSerializer dcs = new(typeof(AntResponse));
                     AntResponse response = dcs.ReadObject(reader) as AntResponse;
@@ -40,12 +40,12 @@ namespace XamAntClientApp.Services
 
         public bool AssignChannel(ChannelType channelTypeByte, byte networkNumber, uint responseWaitTime)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public bool AssignChannelExt(ChannelType channelTypeByte, byte networkNumber, ChannelTypeExtended extAssignByte, uint responseWaitTime)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public bool CloseChannel(uint responseWaitTime)
@@ -163,6 +163,11 @@ namespace XamAntClientApp.Services
         public bool UnassignChannel(uint responseWaitTime)
         {
             throw new NotImplementedException();
+        }
+
+        public void Dispose()
+        {
+            client?.Dispose();
         }
     }
 }
