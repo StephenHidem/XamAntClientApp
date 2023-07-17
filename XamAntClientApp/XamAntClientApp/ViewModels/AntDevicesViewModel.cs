@@ -36,6 +36,7 @@ namespace XamAntClientApp.ViewModels
                 CombinedSpeedAndCadenceSensor => new BikeSpeedAndCadencePage(device as CombinedSpeedAndCadenceSensor),
                 Geocache => new GeocacheTabbedPage(device as Geocache),
                 HeartRate => new HeartRateTabbedPage(device as HeartRate),
+                MuscleOxygen => new MuscleOxygenTabbedPage(device as MuscleOxygen),
                 StrideBasedSpeedAndDistance => new StrideBasedMonitorPage(device as StrideBasedSpeedAndDistance),
                 UnknownDevice => new UnknownDevicePage(device as UnknownDevice),
                 _ => throw new System.NotImplementedException()
