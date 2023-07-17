@@ -2,6 +2,7 @@
 using SmallEarthTech.AntPlus.DeviceProfiles;
 using SmallEarthTech.AntPlus.DeviceProfiles.AssetTracker;
 using SmallEarthTech.AntPlus.DeviceProfiles.BicyclePower;
+using SmallEarthTech.AntPlus.DeviceProfiles.BikeSpeedAndCadence;
 using XamAntClientApp.Services;
 using XamAntClientApp.Views;
 using XamAntClientApp.Views.AssetTrackerPages;
@@ -30,6 +31,9 @@ namespace XamAntClientApp.ViewModels
             {
                 Tracker => new AssetTrackerTabbedPage(device as Tracker),
                 Bicycle => new BicyclePowerTabbedPage(device as Bicycle),
+                BikeCadenceSensor => new BikeCadencePage(device as BikeCadenceSensor),
+                BikeSpeedSensor => new BikeSpeedPage(device as BikeSpeedSensor),
+                CombinedSpeedAndCadenceSensor => new BikeSpeedAndCadencePage(device as CombinedSpeedAndCadenceSensor),
                 Geocache => new GeocacheTabbedPage(device as Geocache),
                 HeartRate => new HeartRateTabbedPage(device as HeartRate),
                 StrideBasedSpeedAndDistance => new StrideBasedMonitorPage(device as StrideBasedSpeedAndDistance),
