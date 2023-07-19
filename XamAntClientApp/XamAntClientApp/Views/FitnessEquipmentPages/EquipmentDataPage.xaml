@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:fepages="clr-namespace:XamAntClientApp.Views.FitnessEquipmentPages"
+             xmlns:viewmodels="clr-namespace:XamAntClientApp.ViewModels"
+             x:DataType="viewmodels:FitnessEquipmentViewModel"
+             Title="Equipment Data"
+             x:Class="XamAntClientApp.Views.FitnessEquipmentPages.EquipmentDataPage">
+    <ContentPage.Content>
+        <Grid Margin="10">
+            <StackLayout>
+                <Frame>
+                    <ContentView Content="{Binding SpecificEquipmentView}"/>
+                </Frame>
+                <Frame>
+                    <Label Text="{Binding FitnessEquipment.State, StringFormat='Equipment State: {0}'}" FontAttributes="Bold"/>
+                </Frame>
+                <Frame>
+                    <StackLayout>
+                        <Label Text="Supported Training Modes" FontAttributes="Bold"/>
+                        <Label Text="{Binding FitnessEquipment.Capabilities, StringFormat='Capabiities: {0}'}"/>
+                        <Label Text="{Binding FitnessEquipment.MaxTrainerResistance, StringFormat='Max. Resistance (Newtons): {0}'}"/>
+                        <Button Text="Request FE Capabilities" Command="{Binding FECapabilitiesRequestCommand}"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <Label Style="{StaticResource OfflineStyle}" IsVisible="{Binding FitnessEquipment.Offline}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

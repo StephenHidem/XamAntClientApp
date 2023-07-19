@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:fe="clr-namespace:SmallEarthTech.AntPlus.DeviceProfiles.FitnessEquipment;assembly=AntPlus"
+             x:Name="this"
+             x:DataType="fe:Treadmill"
+             x:Class="XamAntClientApp.Views.FitnessEquipmentPages.TreadmillView">
+    <ContentView.Content>
+        <StackLayout>
+            <Label Text="Treadmill" FontAttributes="Bold"/>
+            <Label Text="{Binding Cadence, StringFormat='Cadence: {0}'}"/>
+            <Label Text="{Binding NegVerticalDistance, StringFormat='NegVerticalDistance: {0}'}"/>
+            <Label Text="{Binding PosVerticalDistance, StringFormat='PosVerticalDistance: {0}'}"/>
+            <Label Text="{Binding Capabilities, StringFormat='Capabilities: {0}'}"/>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

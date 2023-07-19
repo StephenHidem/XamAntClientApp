@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:XamAntClientApp.ViewModels"
+             x:DataType="viewmodels:FitnessEquipmentViewModel"
+             Title="General Data"
+             x:Class="XamAntClientApp.Views.FitnessEquipmentPages.GeneralDataPage">
+    <ContentPage.Content>
+        <Grid Margin="10">
+            <StackLayout>
+                <Frame>
+                    <StackLayout>
+                        <Label Text="General Data" FontAttributes="Bold"/>
+                        <Label Text="{Binding FitnessEquipment.GeneralData.EquipmentType, StringFormat='Equipment Type: {0}'}"/>
+                        <Label Text="{Binding FitnessEquipment.GeneralData.ElapsedTime, StringFormat='Elapsed Time: {0:hh\\:mm\\:ss}'}"/>
+                        <Label Text="{Binding FitnessEquipment.GeneralData.DistanceTraveled, StringFormat='Distance Traveled: {0}'}" IsVisible="{Binding FitnessEquipment.GeneralData.DistanceTraveledEnabled}"/>
+                        <Label Text="{Binding FitnessEquipment.GeneralData.InstantaneousSpeed, StringFormat='Speed: {0}'}"/>
+                        <Label Text="{Binding FitnessEquipment.GeneralData.InstantaneousHeartRate, StringFormat='Heart Rate: {0}'}"/>
+                        <Label Text="{Binding LapSplitTime, StringFormat='Lap Split Time: {0:hh\\:mm\\:ss\\.ff}'}"/>
+                    </StackLayout>
+                </Frame>
+                <Frame>
+                    <StackLayout>
+                        <Label Text="General Settings" FontAttributes="Bold"/>
+                        <Label Text="{Binding FitnessEquipment.GeneralSettings.CycleLength, StringFormat='Cycle Length: {0}'}"/>
+                        <Label Text="{Binding FitnessEquipment.GeneralSettings.Incline, StringFormat='Incline: {0}'}"/>
+                        <Label Text="{Binding FitnessEquipment.GeneralSettings.ResistanceLevel, StringFormat='Resistance Level: {0}'}"/>
+                    </StackLayout>
+                </Frame>
+                <Frame>
+                    <StackLayout>
+                        <Label Text="General Metabolic" FontAttributes="Bold"/>
+                        <Label Text="{Binding FitnessEquipment.GeneralMetabolic.AccumulatedCalories, StringFormat='Accumulated Calories: {0}'}"/>
+                        <Label Text="{Binding FitnessEquipment.GeneralMetabolic.CaloricBurnRate, StringFormat='Caloric Burn Rate: {0:F1}'}"/>
+                        <Label Text="{Binding FitnessEquipment.GeneralMetabolic.InstantaneousMET, StringFormat='Instantaneous MET: {0:F2}'}"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <Label Style="{StaticResource OfflineStyle}" IsVisible="{Binding FitnessEquipment.Offline}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

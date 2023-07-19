@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:fe="clr-namespace:SmallEarthTech.AntPlus.DeviceProfiles.FitnessEquipment;assembly=AntPlus"
+             x:Name="this"
+             x:DataType="fe:TrainerStationaryBike"
+             x:Class="XamAntClientApp.Views.FitnessEquipmentPages.TrainerStationaryBikeView">
+  <ContentView.Content>
+        <StackLayout>
+            <Label Text="Trainer Stationary Bike" FontAttributes="Bold"/>
+            <Label Text="{Binding AveragePower, StringFormat='Average Power: {0}'}"/>
+            <Label Text="{Binding InstantaneousPower, StringFormat='Instantaneous Power: {0}'}"/>
+            <Label Text="{Binding InstantaneousCadence, StringFormat='Instantaneous Cadence: {0}'}"/>
+            <Label Text="{Binding TargetPower, StringFormat='Target Power: {0}'}"/>
+            <Label Text="{Binding TrainerStatus, StringFormat='Trainer Status: {0}'}"/>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

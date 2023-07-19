@@ -3,10 +3,12 @@ using SmallEarthTech.AntPlus.DeviceProfiles;
 using SmallEarthTech.AntPlus.DeviceProfiles.AssetTracker;
 using SmallEarthTech.AntPlus.DeviceProfiles.BicyclePower;
 using SmallEarthTech.AntPlus.DeviceProfiles.BikeSpeedAndCadence;
+using SmallEarthTech.AntPlus.DeviceProfiles.FitnessEquipment;
 using XamAntClientApp.Services;
 using XamAntClientApp.Views;
 using XamAntClientApp.Views.AssetTrackerPages;
 using XamAntClientApp.Views.BicyclePowerPages;
+using XamAntClientApp.Views.FitnessEquipmentPages;
 using XamAntClientApp.Views.GeocachePages;
 using XamAntClientApp.Views.HeartRatePages;
 using Xamarin.Forms;
@@ -34,6 +36,7 @@ namespace XamAntClientApp.ViewModels
                 BikeCadenceSensor => new BikeCadencePage(device as BikeCadenceSensor),
                 BikeSpeedSensor => new BikeSpeedPage(device as BikeSpeedSensor),
                 CombinedSpeedAndCadenceSensor => new BikeSpeedAndCadencePage(device as CombinedSpeedAndCadenceSensor),
+                Equipment => new FitnessEquipmentTabbedPage(device as Equipment),
                 Geocache => new GeocacheTabbedPage(device as Geocache),
                 HeartRate => new HeartRateTabbedPage(device as HeartRate),
                 MuscleOxygen => new MuscleOxygenTabbedPage(device as MuscleOxygen),

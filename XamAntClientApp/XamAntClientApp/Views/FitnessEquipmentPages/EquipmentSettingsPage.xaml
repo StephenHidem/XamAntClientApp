@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:XamAntClientApp.ViewModels"
+             x:DataType="viewmodels:FitnessEquipmentViewModel"
+             Title="Equipment Setting"
+             x:Class="XamAntClientApp.Views.FitnessEquipmentPages.EquipmentSettingsPage">
+    <ContentPage.Content>
+        <Grid Margin="10">
+            <StackLayout>
+                <Frame>
+                    <StackLayout>
+                        <Label Text="Max. Resistance %:"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Button Text="Set Target Power" Command="{Binding SetTargetPowerCommand}" CommandParameter="{Binding Source={x:Reference TartgetPower}, Path=Text}"/>
+                            <Entry Grid.Column="1" x:Name="TartgetPower"/>
+                            <Button Grid.Row="1" Text="Set Basic Resistance" Command="{Binding SetBasicResistanceCommand}" CommandParameter="{Binding Source={x:Reference BasicResistance}, Path=Text}"/>
+                            <Entry Grid.Column="1" Grid.Row="1" x:Name="BasicResistance"/>
+                            <Button Grid.Row="2" Text="Set Track Resistance" Command="{Binding SetTrackResistanceCommand}"/>
+                            <StackLayout Grid.Column="1" Grid.Row="2">
+                                <Entry/>
+                                <Entry/>
+                            </StackLayout>
+                            <Button Grid.Row="3" Text="Set Wind Resistance" Command="{Binding SetWindResistanceCommand}"/>
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <Label Style="{StaticResource OfflineStyle}" IsVisible="{Binding FitnessEquipment.Offline}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
