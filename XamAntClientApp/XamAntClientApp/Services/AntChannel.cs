@@ -98,11 +98,11 @@ namespace XamAntClientApp.Services
             throw new NotImplementedException();
         }
 
-        public MessagingReturnCode SendExtAcknowledgedData(ChannelId channelId, byte[] data, uint ackWaitTime)
+        public Task<MessagingReturnCode> SendExtAcknowledgedData(ChannelId channelId, byte[] data, uint ackWaitTime)
         {
             byte[] msg = BitConverter.GetBytes(channelId.Id).Concat(data).Concat(BitConverter.GetBytes(ackWaitTime)).ToArray();
             int sent = client.Send(msg, msg.Length, epAddr);
-            return sent == msg.Length ? MessagingReturnCode.Pass : MessagingReturnCode.Fail;
+            return Task.FromResult(sent == msg.Length ? MessagingReturnCode.Pass : MessagingReturnCode.Fail);
         }
 
         public bool SendExtBroadcastData(ChannelId channelId, byte[] data)

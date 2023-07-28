@@ -139,7 +139,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controls\" />
     <Folder Include="Models\" />
   </ItemGroup>
 </Project>
