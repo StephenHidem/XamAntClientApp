@@ -5,7 +5,13 @@ VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamAntClientApp.Android", "XamAntClientApp\XamAntClientApp.Android\XamAntClientApp.Android.csproj", "{5892796E-F5A8-43CC-9A57-310DCE166A5C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamAntClientApp", "XamAntClientApp\XamAntClientApp\XamAntClientApp.csproj", "{CBAC7838-18AD-4EFE-804F-353BF36EC67D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XamAntClientApp", "XamAntClientApp\XamAntClientApp\XamAntClientApp.csproj", "{CBAC7838-18AD-4EFE-804F-353BF36EC67D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A6AADE1B-3DB0-4B47-8FDD-7E9C2E09E7F8}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE.txt = LICENSE.txt
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
