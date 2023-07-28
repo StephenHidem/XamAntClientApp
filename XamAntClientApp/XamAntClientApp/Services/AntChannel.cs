@@ -13,7 +13,7 @@ namespace XamAntClientApp.Services
     internal class AntChannel : IAntChannel
     {
         private readonly UdpClient client;
-        private IPEndPoint epAddr;
+        private IPEndPoint epAddress;
 
         public event EventHandler<AntResponse> ChannelResponse;
 
@@ -27,7 +27,7 @@ namespace XamAntClientApp.Services
                     var result = await udpClient.ReceiveAsync();
 
                     // save the remote endpoint in case we send messages to it
-                    epAddr = result.RemoteEndPoint;
+                    epAddress = result.RemoteEndPoint;
 
                     MemoryStream ms = new(result.Buffer);
                     XmlDictionaryReader reader = XmlDictionaryReader.CreateTextReader(ms, new XmlDictionaryReaderQuotas());
@@ -101,7 +101,7 @@ namespace XamAntClientApp.Services
         public Task<MessagingReturnCode> SendExtAcknowledgedData(ChannelId channelId, byte[] data, uint ackWaitTime)
         {
             byte[] msg = BitConverter.GetBytes(channelId.Id).Concat(data).Concat(BitConverter.GetBytes(ackWaitTime)).ToArray();
-            int sent = client.Send(msg, msg.Length, epAddr);
+            int sent = client.Send(msg, msg.Length, epAddress);
             return Task.FromResult(sent == msg.Length ? MessagingReturnCode.Pass : MessagingReturnCode.Fail);
         }
 
