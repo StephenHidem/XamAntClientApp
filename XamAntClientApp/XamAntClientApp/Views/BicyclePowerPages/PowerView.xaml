@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:bicyclepower="clr-namespace:SmallEarthTech.AntPlus.DeviceProfiles.BicyclePower;assembly=AntPlus"
+             x:Name="this"
+             x:DataType="bicyclepower:StandardPowerSensor"
+             x:Class="XamAntClientApp.Views.BicyclePowerPages.PowerView">
+  <ContentView.Content>
+      <StackLayout>
+            <Frame>
+                <StackLayout>
+                    <Label Text="Power" FontAttributes="Bold" TextDecorations="Underline"/>
+                    <Label Text="{Binding PedalPower, StringFormat='Pedal Power (%): {0}'}"/>
+                    <Label Text="{Binding PedalContribution, StringFormat='Pedal Contribution: {0}'}"/>
+                    <Label Text="{Binding InstantaneousCadence, StringFormat='Instantaneous Cadence (RPM): {0}'}"/>
+                    <Label Text="{Binding InstantaneousPower, StringFormat='Instantaneous Power (Watts): {0}'}"/>
+                    <Label Text="{Binding AveragePower, StringFormat='Average Power (Watts): {0:F3}'}"/>
+                </StackLayout>
+            </Frame>
+      </StackLayout>
+  </ContentView.Content>
+</ContentView>

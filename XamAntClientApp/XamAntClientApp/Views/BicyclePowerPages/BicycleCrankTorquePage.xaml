@@ -19,6 +19,7 @@
                         <Label Text="{Binding AverageCadence, StringFormat='AverageCadence (RPM): {0}'}"/>
                     </StackLayout>
                 </Frame>
+                <bicyclepowerpages:PowerView BindingContext="{Binding BicyclePower.PowerSensor}"/>
                 <bicyclepowerpages:TEPSView BindingContext="{Binding BicyclePower.PowerSensor.TorqueEffectiveness}"/>
             </StackLayout>
             <Label IsVisible="{Binding BicyclePower.Offline}" Style="{StaticResource OfflineStyle}"/>

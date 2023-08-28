@@ -18,7 +18,7 @@ namespace XamAntClientApp.Services
             channel = new AntChannel(client);
         }
 
-        public int NumChannels => throw new NotImplementedException();
+        public int NumChannels => 8;
 
         public FramerType OpenedFrameType => throw new NotImplementedException();
 

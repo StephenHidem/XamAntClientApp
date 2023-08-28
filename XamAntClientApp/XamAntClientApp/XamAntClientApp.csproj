@@ -17,8 +17,8 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2578" />  
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.7" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2612" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.8.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -59,6 +59,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\BicyclePowerPages\CrankTorqueFrequencyPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\BicyclePowerPages\PowerView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\BicyclePowerPages\TEPSView.xaml">

@@ -2,22 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:XamAntClientApp.ViewModels"
-             xmlns:bp="clr-namespace:SmallEarthTech.AntPlus.DeviceProfiles.BicyclePower;assembly=AntPlus"
              xmlns:bicyclepowerpages="clr-namespace:XamAntClientApp.Views.BicyclePowerPages"
              x:DataType="viewmodels:BicyclePowerViewModel"
              x:Class="XamAntClientApp.Views.BicyclePowerPages.BicyclePowerOnlyPage">
     <ContentPage.Content>
         <Grid Margin="10">
             <StackLayout>
-                <Frame BindingContext="{Binding BicyclePower.PowerSensor}">
-                    <StackLayout x:DataType="bp:StandardPowerSensor">
-                        <Label Text="Power Only" FontAttributes="Bold" TextDecorations="Underline"/>
-                        <Label Text="{Binding PedalPower, StringFormat='Pedal Power (%): {0}'}"/>
-                        <Label Text="{Binding InstantaneousCadence, StringFormat='Instantaneous Cadence (RPM): {0}'}"/>
-                        <Label Text="{Binding InstantaneousPower, StringFormat='Instantaneous Power (Watts): {0}'}"/>
-                        <Label Text="{Binding AveragePower, StringFormat='Average Power (Watts): {0:F3}'}"/>
-                    </StackLayout>
-                </Frame>
+                <bicyclepowerpages:PowerView BindingContext="{Binding BicyclePower.PowerSensor}"/>
                 <bicyclepowerpages:TEPSView BindingContext="{Binding BicyclePower.PowerSensor.TorqueEffectiveness}"/>
             </StackLayout>
             <Label IsVisible="{Binding BicyclePower.Offline}" Style="{StaticResource OfflineStyle}"/>
