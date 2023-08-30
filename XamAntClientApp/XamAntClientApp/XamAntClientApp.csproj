@@ -17,17 +17,9 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />
+    <PackageReference Include="SmallEarthTech.AntPlus" Version="2.2.0" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2612" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.8.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="AntPlus">
-      <HintPath>..\..\..\AntPlus\AntPlus\bin\Debug\netstandard2.0\AntPlus.dll</HintPath>
-    </Reference>
-    <Reference Include="AntRadioInterface">
-      <HintPath>..\..\..\AntPlus\AntRadioInterface\bin\Debug\netstandard2.0\AntRadioInterface.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
   <ItemGroup>
