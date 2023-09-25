@@ -36,15 +36,6 @@ namespace XamAntClientApp.Services
         public IAntChannel GetChannel(int num)
         {
             return channel;
-
-            //if (num == 0)
-            //{
-            //    return channel;
-            //}
-            //else
-            //{
-            //    throw new ArgumentException("Only channel 0 is supported");
-            //}
         }
 
         public DeviceCapabilities GetDeviceCapabilities()
@@ -60,6 +51,11 @@ namespace XamAntClientApp.Services
         public DeviceCapabilities GetDeviceCapabilities(uint responseWaitTime)
         {
             throw new NotImplementedException();
+        }
+
+        public IAntChannel[] InitializeContinuousScanMode()
+        {
+            return new IAntChannel[] { channel, channel };
         }
 
         public AntResponse ReadUserNvm(ushort address, byte size)

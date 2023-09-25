@@ -15,6 +15,8 @@ namespace XamAntClientApp.Services
         private readonly UdpClient client;
         private IPEndPoint epAddress;
 
+        public byte ChannelNumber => 1;
+
         public event EventHandler<AntResponse> ChannelResponse;
 
         public AntChannel(UdpClient udpClient)
