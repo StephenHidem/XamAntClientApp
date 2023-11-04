@@ -3,7 +3,7 @@ This solution is a Xamarin Forms example targeting Android devices. It uses the 
 The underlying data transport is UDP with broadcast data received from a multicast port on the local subnet.
 
 Note that the UDP protocol does not make any guarantees as to message delivery or sequence. Caveat emptor! This is just
-a simple demo. I'll be providing a .NET MAUI solution in the near future that utilize gRPC in conjunction with UDP in
+a simple demo. I'll be providing a .NET MAUI solution in the near future that utilizes gRPC in conjunction with UDP in
 the near future.
 ### Prerequisites
 Become an ANT+ Adopter! There is no membership fee. 
