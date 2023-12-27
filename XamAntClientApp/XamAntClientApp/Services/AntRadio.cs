@@ -2,6 +2,7 @@
 using System;
 using System.Net;
 using System.Net.Sockets;
+using System.Threading.Tasks;
 
 namespace XamAntClientApp.Services
 {
@@ -53,9 +54,9 @@ namespace XamAntClientApp.Services
             throw new NotImplementedException();
         }
 
-        public IAntChannel[] InitializeContinuousScanMode()
+        public Task<IAntChannel[]> InitializeContinuousScanMode()
         {
-            return new IAntChannel[] { channel, channel };
+            return Task.FromResult(new IAntChannel[] { channel, channel });
         }
 
         public AntResponse ReadUserNvm(ushort address, byte size)

@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using SmallEarthTech.AntPlus.DeviceProfiles;
+using SmallEarthTech.AntRadioInterface;
 using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
@@ -65,11 +66,11 @@ namespace XamAntClientApp.ViewModels
         }
 
         [RelayCommand(CanExecute = nameof(CanRequestPin))]
-        private async Task RequestPIN()
+        private async Task<MessagingReturnCode> RequestPIN()
         {
             pinReq = true;
             CheckCanExecutes();
-            _ = await Task.Run(() => geocache.RequestPinPage());
+            return await Geocache.RequestPinPage();
         }
         private bool CanRequestPin()
         {
@@ -77,11 +78,11 @@ namespace XamAntClientApp.ViewModels
         }
 
         [RelayCommand(CanExecute = nameof(CanLogVisit))]
-        private void LogVisit()
+        private async Task<MessagingReturnCode> LogVisit()
         {
             logVisit = true;
             CheckCanExecutes();
-            _ = geocache.UpdateLoggedVisits();
+            return await Geocache.UpdateLoggedVisits();
         }
         private bool CanLogVisit()
         {
@@ -89,12 +90,12 @@ namespace XamAntClientApp.ViewModels
         }
 
         [RelayCommand(CanExecute = nameof(CanRequestAuthentication))]
-        private async Task RequestAuthentication()
+        private async Task<MessagingReturnCode> RequestAuthentication()
         {
             authReq = true;
             CheckCanExecutes();
             Random rnd = new();
-            _ = await Task.Run(() => geocache.RequestAuthentication((uint)rnd.Next()));
+            return await Geocache.RequestAuthentication((uint)rnd.Next());
         }
         private bool CanRequestAuthentication()
         {
@@ -102,17 +103,15 @@ namespace XamAntClientApp.ViewModels
         }
 
         [RelayCommand(CanExecute = nameof(CanProgramGeocache))]
-        private async Task ProgramGeocache()
+        private async Task<MessagingReturnCode> ProgramGeocache()
         {
             // we want to capture the updated logged visits
             programming = logVisit = true;
             CheckCanExecutes();
-            await Task.Run(() =>
-            {
-                geocache.ProgramGeocache(TrackableId, Pin, Latitude, Longitude, Hint);
-                programming = false;
-                CheckCanExecutes();
-            });
+            MessagingReturnCode result = await Geocache.ProgramGeocache(TrackableId, Pin, Latitude, Longitude, Hint);
+            programming = false;
+            CheckCanExecutes();
+            return result;
         }
         private bool CanProgramGeocache()
         {
